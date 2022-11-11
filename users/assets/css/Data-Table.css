@@ -1,0 +1,28 @@
+#example {
+  margin-bottom: 0;
+}
+
+hrz-txt-scroll {
+  width: 400px;
+  height: 5rem;
+  padding: 15px;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.;hrz-txt-scroll p; {
+  margin-bottom: 0;
+}
+
+hrz-txt-scroll {
+  width: 400px;
+  height: 5rem;
+  padding: 15px;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+hrz-txt-scroll p {
+  margin-bottom: 0;
+}
+

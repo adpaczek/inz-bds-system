@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>po_login</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Data-Table-styles.css">
+    <link rel="stylesheet" href="assets/css/Data-Table.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Search-Form-.css">
+    <link rel="stylesheet" href="assets/css/Table-With-Search-search-table.css">
+    <link rel="stylesheet" href="assets/css/Table-With-Search.css">
+    <link rel="stylesheet" href="assets/css/Tamplate-SB-Admin-on-BSS.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-dark navbar-expand sb-topnav" style="background: rgb(13,110,253);border-style: none;">
+            <div class="container-fluid"><button class="btn btn-link btn-sm link-light order-md-1" id="sidebarToggle" type="button" style="background: rgb(13,110,253);"></button>
+                <div></div>
+                <form class="d-none d-md-inline-block order-2 ms-auto me-0 me-md-3 my-2 my-md-0">
+                    <div class="input-group">
+                        <div class="input-group-append"></div>
+                    </div>
+                </form>
+                <ul class="navbar-nav d-flex order-3 ms-auto ms-md-0">
+                    <li class="nav-item d-flex d-sm-flex d-md-none justify-content-center align-items-center justify-content-sm-center" style="margin-right: 7px;">
+                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fa fa-search" style="font-size: 25px;margin-right: 0px;"></i> </a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-flex justify-content-center align-items-center">
+                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle active" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="far fa-chart-bar" style="background: rgba(255,255,255,0);color: rgb(255,255,255);font-size: 27px;"></i></a>
+                            <div class="dropdown-menu dropdown-menu-end text-start shadow" style="margin-top: 16px;"><a class="dropdown-item" href="#">Pengaturan</a><a class="dropdown-item" href="#">Log Aktivitas</a><a class="dropdown-item" href="#">Pelanggaran</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Keluar</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <div id="sidenavAccordion" class="sb-sidenav accordion sb-sidenav-dark">
+                    <div class="sb-sidenav-menu" style="background: rgb(13,110,253);">
+                        <div class="nav">
+                            <div>
+                                <div class="sb-sidenav-menu-heading" style="margin-bottom: 24px;"><i class="far fa-user-circle" style="font-size: 80px;background: rgba(255,255,255,0);color: rgb(255,255,255);padding-left: 50px;"></i>
+                                    <div class="container">
+                                        <p style="color: rgb(255,255,255);font-size: 16px;padding-left: 12px;padding-top: 0px;padding-bottom: 6px;margin-bottom: 0px;margin-top: 7px;">ID użytkownika</p>
+                                    </div>
+                                </div><a class="nav-link active" href="#" style="border-top: 1px solid #ffffff ;border-bottom: 1px solid rgb(255, 255, 255) ;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Informacje o sądzie</span>
+                                </a><a class="nav-link active" href="#" style="border-top-width: 1px;border-top-style: none;border-bottom-width: 1px;border-bottom-style: solid;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza opinii biegłych</span>
+                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza biegłych</span>
+                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Pomoc</span>
+                                </a>
+                            </div>
+                            <div>
+                                <div id="collapseLayouts" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Accordion</a><a class="nav-link" href="#">Menu Accordion</a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-bs-parent="#sidenavAccordion">
+                                    <div id="sidenavAccordionPages" class="sb-sidenav-menu-nested nav accordion"><a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="pagesCollapseAuth" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth"><span>Menu Item</span>
+                                            <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
+                                        </a>
+                                        <div id="pagesCollapseAuth" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                            <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer" style="background: rgb(13,110,253);border-style: none;border-top: 1px solid rgb(255,255,255) ;">
+                        <div class="small"><span style="margin-left: 35px;padding-left: 15px;">Wersja 1.0.0.0</span></div>
+                    </div>
+                </div>
+            </div>
+            <div id="layoutSidenav_content">
+                <main style="border-left-style: none;">
+                    <div class="container" style="width: 1686px;">
+                        <div class="row" style="padding-top: 0px;margin-top: -45px;">
+                            <div class="col-md-12 col-xxl-12 hrz-txt-scroll" style="padding-bottom: 319px;margin-top: 75px;white-space: nowrap;border: 1px none rgb(173,173,173);width: 1500px;margin-bottom: -320px;margin-left: -206px;" data-bs-smooth-scroll="true">
+                                <div>
+                                    <div class="col-md-12 search-table-col hrz-txt-scroll" style="margin: -26px 0px 0px;"><span class="counter pull-right"></span>
+                                        <form class="search-form" style="width: 1287px;margin: 7px 5px;">
+                                            <div></div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div></div>
+                                <div class="card shadow" style="width: 1500px;margin-left: 100px;">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Przeszukaj akta</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 text-nowrap">
+                                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Wyświetlanie&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                                            <option value="10" selected="">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>&nbsp;</label></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Szukaj..."></label></div>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                            <table class="table my-0" id="dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sygnatura</th>
+                                                        <th>Wydział sądu</th>
+                                                        <th>Artykuły</th>
+                                                        <th>Zawartość teczki</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Airi Satou</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>33</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Angelica Ramos</td>
+                                                        <td>Chief Executive Officer(CEO)</td>
+                                                        <td>London</td>
+                                                        <td>47</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ashton Cox</td>
+                                                        <td>Junior Technical Author</td>
+                                                        <td>San Francisco</td>
+                                                        <td>66</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bradley Greer</td>
+                                                        <td>Software Engineer</td>
+                                                        <td>London</td>
+                                                        <td>41</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Brenden Wagner</td>
+                                                        <td>Software Engineer</td>
+                                                        <td>San Francisco</td>
+                                                        <td>28</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Brielle Williamson</td>
+                                                        <td>Integration Specialist</td>
+                                                        <td>New York</td>
+                                                        <td>61</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bruno Nash<br></td>
+                                                        <td>Software Engineer</td>
+                                                        <td>London</td>
+                                                        <td>38</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Caesar Vance</td>
+                                                        <td>Pre-Sales Support</td>
+                                                        <td>New York</td>
+                                                        <td>21</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Cara Stevens</td>
+                                                        <td>Sales Assistant</td>
+                                                        <td>New York</td>
+                                                        <td>46</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Cedric Kelly</td>
+                                                        <td>Senior JavaScript Developer</td>
+                                                        <td>Edinburgh</td>
+                                                        <td>22</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td><strong>Sygnatura</strong></td>
+                                                        <td><strong>Wydział sądu</strong></td>
+                                                        <td><strong>Artykuły</strong></td>
+                                                        <td><strong>Zawartość teczki</strong></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 align-self-center">
+                                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Wyświetlanie 1 do 10 z 27</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                                    <ul class="pagination">
+                                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: -46px;padding-left: 0px;margin-left: -15px;">
+                            <div class="col-md-12" style="padding-bottom: 319px;margin-bottom: 0px;margin-top: 75px;margin-left: 0px;height: 730px;border: 1px none rgb(173,173,173);width: 1686px;">
+                                <div></div>
+                                <div class="card shadow" style="width: 1500px;margin-left: -100px;">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Wysłane prośby o dostęp do akt</p>
+                                    </div>
+                                    <div class="card-body" style="margin: -10px;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="text-md-end dataTables_filter" id="dataTable_filter-1"><label class="form-label"></label></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="text-md-end dataTables_filter" id="dataTable_filter-2"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Szukaj..."></label></div>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive table mt-2" id="dataTable-2" role="grid" aria-describedby="dataTable_info">
+                                            <table class="table my-0" id="dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Prośby</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Airi Satou</td>
+                                                        <td>$162,700</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Angelica Ramos</td>
+                                                        <td>$1,200,000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ashton Cox</td>
+                                                        <td>$86,000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bradley Greer</td>
+                                                        <td>$132,000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Brenden Wagner</td>
+                                                        <td>$206,850</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Brielle Williamson</td>
+                                                        <td>$372,000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bruno Nash<br></td>
+                                                        <td>$163,500</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Caesar Vance</td>
+                                                        <td>$106,450</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Cara Stevens</td>
+                                                        <td>$145,600</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Cedric Kelly</td>
+                                                        <td>$433,060</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td><strong>Prośby</strong></td>
+                                                        <td><strong>Status</strong></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 align-self-center"></div>
+                                            <div class="col-md-6">
+                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                                    <ul class="pagination">
+                                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/database.js"></script>
+    <script src="assets/js/Table-With-Search.js"></script>
+</body>
+
+</html>

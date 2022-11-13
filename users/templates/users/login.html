@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>login</title>
-    <link rel="stylesheet" href="{{ STATIC_URL }}/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}/assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}/assets/css/Google-Style-Login-.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}/assets/css/Login-Form-Basic-icons.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Google-Style-Login-.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Login-Form-Basic-icons.css' %}">
 </head>
 
 <body>

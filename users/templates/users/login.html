@@ -14,7 +14,7 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md py-3" style="background: rgb(13,110,253);margin-bottom: -16px;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><button class="btn btn-primary" type="button" style="margin-left: -310px;margin-right: 0px;padding: 6px 26px;padding-bottom: 6px;width: 144.391px;height: 43.5px;background: rgb(0,84,210);font-size: 21px;border-style: none;"><i class="fas fa-arrow-left" style="padding-right: 0px;margin-right: 0px;margin-left: 0px;"></i>&nbsp;Powrót</button>
+        <div class="container"><a href="{% url 'home' %}" button class="btn btn-primary" type="button" style="padding: 6px 26px;padding-bottom: 6px;width: 144.391px;height: 43.5px;background: rgb(0,84,210);font-size: 21px;border-style: none;margin-right: 0px;margin-left: -0px;"><i class="fas fa-arrow-left" style="padding-right: 0px;margin-right: 0px;margin-left: 0px;"></i> Powrót</a></div>
             <div class="collapse navbar-collapse" id="navcol-1" style="margin-bottom: 0px;margin-right: -287px;padding-right: 0px;padding-left: 0px;margin-left: -300px;color: rgb(255,255,255);">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item" style="padding-bottom: 0px;margin-top: 15px;"></li>
@@ -39,11 +39,28 @@
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
                                 </svg></div>
                             <form class="text-center" method="post">
-                                <div class="mb-3"><input class="form-control" type="email" name="id" placeholder="ID użytkownika"></div>
-                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Hasło"></div>
+                                {% csrf_token %}
+						        <div class="input-group mb-3">
+							        <div class="input-group-append">
+								        <span class="input-group-text"><i class="fas fa-user"></i></span>
+							        </div>
+
+							        <input type="text" name="username" placeholder="ID użytkownika..." class="form-control">
+						        </div>
+
+						        <div class="input-group mb-2">
+							        <div class="input-group-append">
+								        <span class="input-group-text"><i class="fas fa-key"></i></span>
+							        </div>
+
+								    <input type="password" name="password" placeholder="Hasło..." class="form-control" >
+						        </div>
                                 <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(13, 110, 253);">Zaloguj</button></div>
                             </form>
                         </div>
+                        {% for message in messages %}
+					    <p id="messages">{{message}}</p>
+				        {% endfor %}
                     </div>
                 </div>
             </div>

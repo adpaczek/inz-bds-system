@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>glowna</title>
+    <title>Baza Dokumentów Sądowych</title>
     {% load static %}
     <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}">
@@ -24,7 +24,7 @@
                         </div>
                     </li>
                     <li class="nav-item"></li>
-                </ul><button class="btn btn-primary" type="button" style="margin-right: 0px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Zaloguj</button>
+                </ul><a href= "{% url 'login' %}" button class="btn btn-primary" type="button" style="margin-right: 0px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Zaloguj</a>
             </div>
         </div>
     </nav>

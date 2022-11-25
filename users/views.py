@@ -1,4 +1,5 @@
 from contextvars import Context
+from pdb import post_mortem
 from sunau import Au_read
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -7,6 +8,8 @@ from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from .models import CourtFile
 
 
 def home(request):
@@ -33,13 +36,13 @@ def loginPage(request):
 	else:
 		if request.method == 'POST':
 			username = request.POST.get('username')
-			password =request.POST.get('password')
+			password = request.POST.get('password')
 
 			user = authenticate(request, username=username, password=password)
 
 			if user is not None:
 				login(request, user)
-				return redirect('start')
+				return redirect('start_u')
 			else:
 				messages.info(request, 'ID użytkownika lub hasło jest niepoprawne')
 
@@ -48,8 +51,10 @@ def loginPage(request):
 
 @login_required(login_url='login')
 def startPage(request):
-    context= {}
-    return render(request, 'users/start.html', context)
+    courtfiles_list = CourtFile.objects.all()
+    context = {'courtfiles_list': courtfiles_list}
+    
+    return render(request, 'users/start_u.html', context)
 
 def logoutUser(request):
     logout(request)

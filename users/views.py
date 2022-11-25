@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from .models import CourtFile
-
+import django_filters
 
 def home(request):
     context= {}
@@ -59,5 +59,26 @@ def startPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def bazabPage(request):
+    context = {}
+    return render(request, 'users/baza_b.html', context)
+
+@login_required(login_url='login')
+def bazaobPage(request):
+    context = {}
+    return render(request, 'users/baza_ob.html', context)
+
+@login_required(login_url='login')
+def infoPage(request):
+    context = {}
+    return render(request, 'users/info.html', context)
+
+@login_required(login_url='login')
+def pomocPage(request):      
+    context = {}
+    return render(request, 'users/pomoc.html', context)    
+
 
 

@@ -29,20 +29,7 @@
                         <div class="input-group-append"></div>
                     </div>
                 </form>
-                <ul class="navbar-nav d-flex order-3 ms-auto ms-md-0">
-                    <li class="nav-item d-flex d-sm-flex d-md-none justify-content-center align-items-center justify-content-sm-center" style="margin-right: 7px;">
-                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fa fa-search" style="font-size: 25px;margin-right: 0px;"></i> </a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                        </div>
-                    </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle active" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="far fa-chart-bar" style="background: rgba(255,255,255,0);color: rgb(255,255,255);font-size: 27px;"></i></a>
-                            <div class="dropdown-menu dropdown-menu-end text-start shadow" style="margin-top: 16px;"><a class="dropdown-item" href="#">Pengaturan</a><a class="dropdown-item" href="#">Log Aktivitas</a><a class="dropdown-item" href="#">Pelanggaran</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Keluar</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <a href= "{% url 'logout' %}" button class="btn btn-primary" type="button" style="margin-right: 100px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Wyloguj</a>
                 <p style="padding-bottom: 0px;padding-top: 16px;font-family: Aboreto, serif;width: 250px;font-size: 21px;">Baza Dokumentów Sądowych</p>
             </div>
         </nav>
@@ -56,31 +43,17 @@
                                     <div class="container">
                                         <p style="color: rgb(255,255,255);font-size: 16px;padding-left: 12px;padding-top: 0px;padding-bottom: 6px;margin-bottom: 0px;margin-top: 7px;">ID użytkownika</p>
                                     </div>
-                                </div><a class="nav-link active" href="#" style="border-top: 1px solid #ffffff ;border-bottom: 1px solid rgb(255, 255, 255) ;">
-                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Informacje o sądzie</span>
-                                </a><a class="nav-link active" href="#" style="border-top-width: 1px;border-top-style: none;border-bottom-width: 1px;border-bottom-style: solid;">
-                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza opinii biegłych</span>
-                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
-                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza biegłych</span>
-                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
-                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Pomoc</span>
+                                </div><a class="nav-link active" href="{% url 'a_info' %}" style="border-top: 1px none #ffffff ;border-bottom: 1px none rgb(255, 255, 255) ;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;margin-right: -12px;"><i class="fas fa-info-circle"></i>&nbsp;Informacje o sądzie</span>
+                                </a><a class="nav-link active" href="{% url 'a_ob' %}" style="border-top-width: 1px;border-top-style: none;border-bottom-width: 1px;border-bottom-style: none;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;margin-right: -10px;"> <i class="fas fa-database"></i> Baza opinii biegłych</span>
+                                </a><a class="nav-link active" href="{% url 'a_baza_b' %}" style="border-bottom-width: 1px;border-bottom-style: none;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;"><i class="fas fa-database"></i>&nbsp;Baza biegłych</span>
+                                </a><a class="nav-link active" href="{% url 'prosby' %}" style="border-bottom-width: 1px;border-bottom-style: none;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;"><i class="fas fa-users" style="font-size: 20px;"></i>&nbsp;Prośby</span>
+                                </a><a class="nav-link active" href="{% url 'a_pomoc' %}" style="border-bottom-width: 1px;border-bottom-style: none;">
+                                    <div class="sb-nav-link-icon"></div><span style="font-size: 19px;"><i class="fas fa-hands-helping" style="font-size: 20px;"></i>&nbsp;Pomoc</span>
                                 </a>
-                            </div>
-                            <div>
-                                <div id="collapseLayouts" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                    <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Accordion</a><a class="nav-link" href="#">Menu Accordion</a></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-bs-parent="#sidenavAccordion">
-                                    <div id="sidenavAccordionPages" class="sb-sidenav-menu-nested nav accordion"><a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="pagesCollapseAuth" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth"><span>Menu Item</span>
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
-                                        </a>
-                                        <div id="pagesCollapseAuth" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                            <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,8 +63,253 @@
                 </div>
             </div>
             <div id="layoutSidenav_content">
-                <main style="border-left-style: none;">
+                <main style="border-style: none;border-left-style: none;">
                     <p style="margin-left: 2px;background: #ffffff;height: 35px;padding-top: 4px;color: rgb(125,125,125);box-shadow: 0px 7px 13px rgb(227,227,227);border-top: 1px solid rgba(159,159,159,0.176) ;border-bottom: 1px solid rgba(159,159,159,0.176) ;">&nbsp; Strona główna / Panel użytkownika</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-left: 0px;margin-left: -212px;">
+                                <div class="card shadow" style="width: 725px;margin-left: 100px;margin-top: 34px;border-style: none;">
+                                    <div class="card-header py-3" style="background: rgba(255,255,255,0.03);border-bottom-style: solid;border-bottom-color: rgba(159,159,159,0.176);">
+                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;color: rgb(13, 110, 253);">Przeszukaj akta</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 text-nowrap">
+                                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Wyświetlanie&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                                            <option value="10" selected="">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>&nbsp;</label></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Szukaj..."></label></div>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                            <table class="table my-0" id="dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sygnatura</th>
+                                                        <th>Wydział sądu</th>
+                                                        <th>Artykuły</th>
+                                                        <th>Zawartość teczki</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>1</td>
+                                                        <td>1</td>
+                                                        <td>33</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>2</td>
+                                                        <td>2</td>
+                                                        <td>47</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>3</td>
+                                                        <td>3</td>
+                                                        <td>66</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>4</td>
+                                                        <td>4</td>
+                                                        <td>41</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>5</td>
+                                                        <td>5</td>
+                                                        <td>28</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>6</td>
+                                                        <td>6</td>
+                                                        <td>61</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7<br></td>
+                                                        <td>7</td>
+                                                        <td>7</td>
+                                                        <td>38</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>8</td>
+                                                        <td>8</td>
+                                                        <td>21</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>9</td>
+                                                        <td>9</td>
+                                                        <td>46</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>10</td>
+                                                        <td>10</td>
+                                                        <td>22</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td><strong>Sygnatura</strong></td>
+                                                        <td><strong>Wydział sądu</strong></td>
+                                                        <td><strong>Artykuły</strong></td>
+                                                        <td><strong>Zawartość teczki</strong></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 align-self-center">
+                                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Wyświetlanie 1 do 10 z 27</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                                    <ul class="pagination">
+                                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="margin: 69px;">
+                                <div class="card shadow" style="width: 725px;margin: 0px 0px 16px 0px;padding: 0px;margin-right: 0px;padding-right: 0px;margin-bottom: 0px;height: 710px;margin-left: 183px;padding-left: 0px;padding-top: 0px;margin-top: -35px;border-style: none;">
+                                    <div class="card-header py-3" style="background: rgba(255,255,255,0.03);border-bottom-style: solid;border-bottom-color: rgba(159,159,159,0.176);">
+                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;width: 300px;">Twoje dodane akta</p>
+                                        <p style="width: 300px;margin-bottom: 0px;margin-left: 398px;margin-top: -26px;"><button class="btn btn-primary" type="button" style="border-right-style: none;margin-top: -12px;margin-left: 125px;"><i class="fas fa-plus"></i>&nbsp; Dodaj nowe akta</button>&nbsp;</p>
+                                    </div>
+                                    <div class="card-body" style="margin: -10px;">
+                                        <div class="row">
+                                            <div class="col-md-6" style="width: 357.5px;height: 39px;">
+                                                <div id="dataTable_length-1" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Wyświetlanie&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                                            <option value="10" selected="">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>&nbsp;</label></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="text-md-end dataTables_filter" id="dataTable_filter-4"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Szukaj..." style="margin-top: 10px;"></label></div>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive table mt-2" id="dataTable-3" role="grid" aria-describedby="dataTable_info">
+                                            <table class="table my-0" id="dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sygnatura</th>
+                                                        <th>Wydział sądu</th>
+                                                        <th>Artykuły</th>
+                                                        <th>Zawartość teczki</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Oczekujące</td>
+                                                        <td>Oczekujące</td>
+                                                        <td>Oczekujące</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                        <td>Oczekujące<br></td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td><strong>Sygnatura</strong></td>
+                                                        <td><strong>Wydział sądu</strong></td>
+                                                        <td><strong>Artykuły</strong></td>
+                                                        <td><strong>Zawartość teczki</strong></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 align-self-center">
+                                                <p id="dataTable_info-1" class="dataTables_info" role="status" aria-live="polite">Wyświetlanie 1 do 10 z 27</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                                    <ul class="pagination">
+                                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>

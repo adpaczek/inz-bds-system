@@ -31,20 +31,7 @@
                         <div class="input-group-append"></div>
                     </div>
                 </form>
-                <ul class="navbar-nav d-flex order-3 ms-auto ms-md-0">
-                    <li class="nav-item d-flex d-sm-flex d-md-none justify-content-center align-items-center justify-content-sm-center" style="margin-right: 7px;">
-                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fa fa-search" style="font-size: 25px;margin-right: 0px;"></i> </a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                        </div>
-                    </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle active" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="far fa-chart-bar" style="background: rgba(255,255,255,0);color: rgb(13,110,253);font-size: 27px;"></i></a>
-                            <div class="dropdown-menu dropdown-menu-end text-start shadow" style="margin-top: 16px;"><a class="dropdown-item" href="#">Pengaturan</a><a class="dropdown-item" href="#">Log Aktivitas</a><a class="dropdown-item" href="#">Pelanggaran</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Keluar</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul><a href= "{% url 'logout' %}" button class="btn btn-primary" type="button" style="margin-right: 100px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Wyloguj</a>
+                <a href= "{% url 'logout' %}" button class="btn btn-primary" type="button" style="margin-right: 100px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Wyloguj</a>
             </div>
         </nav>
         <div id="layoutSidenav">
@@ -68,22 +55,6 @@
                                 </a><a class="nav-link active" href="{% url 'a_pomoc' %}" style="border-bottom-width: 1px;border-bottom-style: none;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;"><i class="fas fa-hands-helping" style="font-size: 20px;"></i>&nbsp;Pomoc</span>
                                 </a>
-                            </div>
-                            <div>
-                                <div id="collapseLayouts" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                    <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Accordion</a><a class="nav-link" href="#">Menu Accordion</a></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-bs-parent="#sidenavAccordion">
-                                    <div id="sidenavAccordionPages" class="sb-sidenav-menu-nested nav accordion"><a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="pagesCollapseAuth" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth"><span>Menu Item</span>
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
-                                        </a>
-                                        <div id="pagesCollapseAuth" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                            <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

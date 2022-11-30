@@ -4,19 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>baza_op</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aboreto&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/Data-Table-styles.css">
-    <link rel="stylesheet" href="assets/css/Data-Table.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Search-Form-.css">
-    <link rel="stylesheet" href="assets/css/Table-With-Search-search-table.css">
-    <link rel="stylesheet" href="assets/css/Table-With-Search.css">
-    <link rel="stylesheet" href="assets/css/Tamplate-SB-Admin-on-BSS.css">
+    <title>Baza opinii biegłych</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome5-overrides.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Data-Table-styles.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Data-Table.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Pretty-Search-Form-.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Table-With-Search-search-table.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Table-With-Search.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Tamplate-SB-Admin-on-BSS.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css%22%3E">
+    <link rel="stylesheet" href="{% static '/assets/css/styles.css' %}">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body style="background: rgb(244,244,244);">
@@ -29,21 +34,7 @@
                         <div class="input-group-append"></div>
                     </div>
                 </form>
-                <ul class="navbar-nav d-flex order-3 ms-auto ms-md-0">
-                    <li class="nav-item d-flex d-sm-flex d-md-none justify-content-center align-items-center justify-content-sm-center" style="margin-right: 7px;">
-                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fa fa-search" style="font-size: 25px;margin-right: 0px;"></i> </a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                        </div>
-                    </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle active" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="far fa-chart-bar" style="background: rgba(255,255,255,0);color: rgb(255,255,255);font-size: 27px;"></i></a>
-                            <div class="dropdown-menu dropdown-menu-end text-start shadow" style="margin-top: 16px;"><a class="dropdown-item" href="#">Pengaturan</a><a class="dropdown-item" href="#">Log Aktivitas</a><a class="dropdown-item" href="#">Pelanggaran</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Keluar</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <p style="padding-bottom: 0px;padding-top: 16px;font-family: Aboreto, serif;width: 250px;font-size: 21px;">Baza Dokumentów Sądowych</p>
+                <a href= "{% url 'logout' %}" button class="btn btn-primary" type="button" style="margin-right: 100px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Wyloguj</a>
             </div>
         </nav>
         <div id="layoutSidenav">
@@ -56,31 +47,15 @@
                                     <div class="container">
                                         <p style="color: rgb(255,255,255);font-size: 16px;padding-left: 12px;padding-top: 0px;padding-bottom: 6px;margin-bottom: 0px;margin-top: 7px;">ID użytkownika</p>
                                     </div>
-                                </div><a class="nav-link active" href="#" style="border-top: 1px solid #ffffff ;border-bottom: 1px solid rgb(255, 255, 255) ;">
+                                </div><a class="nav-link active" href="{% url 'info' %}" style="border-top: 1px solid #ffffff ;border-bottom: 1px solid rgb(255, 255, 255) ;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Informacje o sądzie</span>
-                                </a><a class="nav-link active" href="#" style="border-top-width: 1px;border-top-style: none;border-bottom-width: 1px;border-bottom-style: solid;">
+                                </a><a class="nav-link active" href="{% url 'baza_ob' %}" style="border-top-width: 1px;border-top-style: none;border-bottom-width: 1px;border-bottom-style: solid;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza opinii biegłych</span>
-                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
+                                </a><a class="nav-link active" href="{% url 'baza_b' %}" style="border-bottom-width: 1px;border-bottom-style: solid;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza biegłych</span>
-                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
+                                </a><a class="nav-link active" href="{% url 'pomoc' %}" style="border-bottom-width: 1px;border-bottom-style: solid;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Pomoc</span>
                                 </a>
-                            </div>
-                            <div>
-                                <div id="collapseLayouts" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                    <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Accordion</a><a class="nav-link" href="#">Menu Accordion</a></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-bs-parent="#sidenavAccordion">
-                                    <div id="sidenavAccordionPages" class="sb-sidenav-menu-nested nav accordion"><a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="pagesCollapseAuth" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth"><span>Menu Item</span>
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
-                                        </a>
-                                        <div id="pagesCollapseAuth" class="collapse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                            <div class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a><a class="nav-link" href="#">Menu Item</a></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,7 +66,71 @@
             </div>
             <div id="layoutSidenav_content">
                 <main style="border-left-style: none;">
-                    <p style="margin-left: 2px;background: #ffffff;height: 35px;padding-top: 4px;color: rgb(125,125,125);box-shadow: 0px 7px 13px rgb(227,227,227);border-top: 1px solid rgba(159,159,159,0.176) ;border-bottom: 1px solid rgba(159,159,159,0.176) ;">&nbsp; Strona główna / Panel użytkownika</p>
+                    <div class="container" style="width: 1686px;">
+                        <div class="row" style="padding-top: 0px;margin-top: -45px;">
+                            <div class="col-md-12 col-xxl-12 hrz-txt-scroll" style="padding-bottom: 319px;margin-top: 75px;white-space: nowrap;border: 1px none rgb(173,173,173);width: 1500px;margin-bottom: -320px;margin-left: -206px;" data-bs-smooth-scroll="true">
+                                <div>
+                                    <div class="col-md-12 search-table-col hrz-txt-scroll" style="margin: -26px 0px 0px;"><span class="counter pull-right"></span>
+                                        <form class="search-form" style="width: 1287px;margin: 7px 5px;">
+                                            <div></div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div></div>
+                                <div class="card shadow" style="width: 1500px;margin-left: 100px;">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Przeszukaj opinie biegłych</p>
+                                    </div>
+                                    <div class="card-body">  
+                                        <div class="row">
+                                            <div class="col-md-6 text-nowrap">
+                                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Wyświetlanie&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                                            <option value="10" selected="">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>&nbsp;</label></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Szukaj..."></label></div>
+                                            </div>
+                                        </div>                                      
+                                        <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                            <table class="table my-0" id="dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sygnatura</th>
+                                                        <th>Biegły</th>
+                                                        <th>Tytuł</th>
+                                                        <th>Data</th>
+                                                        <th>Skan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                
+                                                {% for expertsstatement in estatements_list %}
+                                                    <tr>
+                                                        <td>{{expertsstatement.signature}}</td>
+                                                        <td>{{expertsstatement.expert}}</td>
+                                                        <td>{{expertsstatement.statement_title}}</td>
+                                                        <td>{{expertsstatement.date}}</td>
+                                                        <td>{{expertsstatement.scan}}</td>
+
+                                                    </tr>
+                                                {% endfor %}   
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: -46px;padding-left: 0px;margin-left: -15px;">
+                            <div class="col-md-12" style="padding-bottom: 319px;margin-bottom: 0px;margin-top: 75px;margin-left: 0px;height: 730px;border: 1px none rgb(173,173,173);width: 1686px;">                         
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
@@ -101,6 +140,24 @@
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/database.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{% static '/assets/js/db.js' %}"></script>
+    <script>
+        $("#dataTable").DataTable({
+            paging: true,
+            pageLength: 10,
+            lengthChange: true,
+            autoWidth: true,
+            searching: true,
+            bInfo: true,
+            bSort: true, 
+
+            "columnDefs": [{
+                "targets": [3,4],
+                "orderable": false
+            }]
+        });
+    </script> 
 </body>
 
 </html>

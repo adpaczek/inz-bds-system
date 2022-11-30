@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from .models import CourtFile
+from .models import CourtFile, ExpertsStatement, Expert
 from .decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib.auth.models import Group
 
@@ -68,13 +68,15 @@ def logoutUser(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
 def bazabPage(request):
-    context = {}
+    experts_list = Expert.objects.all()
+    context = {'experts_list': experts_list}
     return render(request, 'users/baza_b.html', context)
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
 def bazaobPage(request):
-    context = {}
+    estatements_list = ExpertsStatement.objects.all()
+    context = {'estatements_list': estatements_list}
     return render(request, 'users/baza_ob.html', context)
 
 @login_required(login_url='login')

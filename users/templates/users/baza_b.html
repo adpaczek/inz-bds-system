@@ -99,11 +99,11 @@
                                             <table class="table my-0" id="dataTable">
                                                 <thead>
                                                     <tr>
+                                                        <th>Tytuł</th>
+                                                        <th>Imię</th>
+                                                        <th>Nazwisko</th>
                                                         <th>Specjalność</th>
                                                         <th>Specjalizacja</th>
-                                                        <th>Nazwisko</th>
-                                                        <th>Imię</th>
-                                                        <th>Tytuł</th>
                                                         <th>Kadencja</th>
                                                         <th>Miejscowość</th>
                                                     </tr>
@@ -112,16 +112,16 @@
                                                 
                                                 {% for expert in experts_list %}
                                                     <tr>
-                                                        <td>{{expert.speciality}}</td>
-                                                        <td>{{expert.specialisation}}</td>
-                                                        <td>{{expert.surname}}</td>
-                                                        <td>{{expert.name}}</td>
                                                         <td>{{expert.ex_title}}</td>
+                                                        <td>{{expert.name}}</td> 
+                                                        <td>{{expert.surname}}</td>
+                                                        <td>{{expert.speciality}}</td>
+                                                        <td>{{expert.specialisation}}</td>                                                     
                                                         <td>{{expert.term}}</td>
                                                         <td>{{expert.locality}}</td>
 
                                                     </tr>
-                                                {% endfor %}   
+                                                {% endfor %}    
 
                                                 </tbody>
                                             </table>

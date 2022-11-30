@@ -127,6 +127,7 @@
                                                         <th>Sąd</th>
                                                         <th>Artykuł</th>
                                                         <th>Zawartość teczki</th>
+                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -137,6 +138,7 @@
                                                         <td>{{courtfile.court}}</td>
                                                         <td>{{courtfile.article}}</td>
                                                         <td>{{courtfile.contents_list}}</td>
+                                                        <td>Prośba o dostęp</td>
                                                     </tr>
                                                 {% endfor %}   
 
@@ -273,6 +275,20 @@
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/database.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $("#dataTable").DataTable({
+            paging: true,
+            pageLength: 10,
+            lengthChange: true,
+            autoWidth: true,
+            searching: true,
+            bInfo: true,
+            bSort: true,  
+        })
+
+    </script> 
 </body>
 
 </html>

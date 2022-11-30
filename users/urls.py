@@ -8,11 +8,17 @@ urlpatterns = [
     path('register/', views.registerPage, name="register"),
     path('login/', views.loginPage, name="login"),
     path('start_u/', views.startPage, name="start_u"),
+    path('start_a/', views.astartPage, name="start_a"),
     path('logout/', views.logoutUser, name="logout"),
     path('baza_b/', views.bazabPage, name="baza_b"),
     path('baza_ob/', views.bazaobPage, name="baza_ob"),
     path('pomoc/', views.pomocPage, name="pomoc"),
     path('info/', views.infoPage, name="info"),
+    path('a_baza_b/', views.abazabPage, name="a_baza_b"),
+    path('a_ob/', views.abazaobPage, name="a_ob"),
+    path('a_pomoc/', views.apomocPage, name="a_pomoc"),
+    path('a_info/', views.ainfoPage, name="a_info"),
+    path('prosby/', views.prosbyPage, name="prosby"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

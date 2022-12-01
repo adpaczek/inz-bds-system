@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>info</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aboreto&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/Data-Table-styles.css">
-    <link rel="stylesheet" href="assets/css/Data-Table.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Search-Form-.css">
-    <link rel="stylesheet" href="assets/css/Table-With-Search-search-table.css">
-    <link rel="stylesheet" href="assets/css/Table-With-Search.css">
-    <link rel="stylesheet" href="assets/css/Tamplate-SB-Admin-on-BSS.css">
+    <title>Informacje</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome5-overrides.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Data-Table-styles.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Data-Table.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Pretty-Search-Form-.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Table-With-Search-search-table.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Table-With-Search.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Tamplate-SB-Admin-on-BSS.css' %}">
 </head>
 
 <body style="background: rgb(244,244,244);">
@@ -29,6 +29,7 @@
                         <div class="input-group-append"></div>
                     </div>
                 </form>
+                <a href= "{% url 'logout' %}" button class="btn btn-primary" type="button" style="margin-right: 100px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Wyloguj</a>
                 <ul class="navbar-nav d-flex order-3 ms-auto ms-md-0">
                     <li class="nav-item d-flex d-sm-flex d-md-none justify-content-center align-items-center justify-content-sm-center" style="margin-right: 7px;">
                         <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fa fa-search" style="font-size: 25px;margin-right: 0px;"></i> </a>
@@ -56,13 +57,13 @@
                                     <div class="container">
                                         <p style="color: rgb(255,255,255);font-size: 16px;padding-left: 12px;padding-top: 0px;padding-bottom: 6px;margin-bottom: 0px;margin-top: 7px;">ID użytkownika</p>
                                     </div>
-                                </div><a class="nav-link active" href="#" style="border-top: 1px solid #ffffff ;border-bottom: 1px solid rgb(255, 255, 255) ;">
+                                </div><a class="nav-link active" href="{% url 'info' %}" style="border-top: 1px solid #ffffff ;border-bottom: 1px solid rgb(255, 255, 255) ;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Informacje o sądzie</span>
-                                </a><a class="nav-link active" href="#" style="border-top-width: 1px;border-top-style: none;border-bottom-width: 1px;border-bottom-style: solid;">
+                                </a><a class="nav-link active" href="{% url 'baza_ob' %}" style="border-top-width: 1px;border-top-style: none;border-bottom-width: 1px;border-bottom-style: solid;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza opinii biegłych</span>
-                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
+                                </a><a class="nav-link active" href="{% url 'baza_b' %}" style="border-bottom-width: 1px;border-bottom-style: solid;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Baza biegłych</span>
-                                </a><a class="nav-link active" href="#" style="border-bottom-width: 1px;border-bottom-style: solid;">
+                                </a><a class="nav-link active" href="{% url 'pomoc' %}" style="border-bottom-width: 1px;border-bottom-style: solid;">
                                     <div class="sb-nav-link-icon"></div><span style="font-size: 19px;">Pomoc</span>
                                 </a>
                             </div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     {% load static %}
     <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}">
@@ -14,8 +14,8 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md py-3" style="background: rgb(13,110,253);margin-bottom: -16px;">
-        <div class="container"><a href="{% url 'home' %}" button class="btn btn-primary" type="button" style="padding: 6px 26px;padding-bottom: 6px;width: 144.391px;height: 43.5px;background: rgb(0,84,210);font-size: 21px;border-style: none;margin-right: 0px;margin-left: -0px;"><i class="fas fa-arrow-left" style="padding-right: 0px;margin-right: 0px;margin-left: 0px;"></i> Powrót</a></div>
-            <div class="collapse navbar-collapse" id="navcol-1" style="margin-bottom: 0px;margin-right: -287px;padding-right: 0px;padding-left: 0px;margin-left: -300px;color: rgb(255,255,255);">
+        <div class="container"><a href="{% url 'home' %}" button class="btn btn-primary" type="button" style="padding: 6px 26px;padding-bottom: 6px;width: 121px;height: 35px;background: rgb(0,84,210);font-size: 16px;border-style: none;margin-right: 0px;margin-left: -0px;"><i class="fas fa-arrow-left" style="padding-right: 0%;margin-right: 0px;margin-left: -3px;"></i> Powrót</a></div>
+            <div class="collapse navbar-collapse" id="navcol-1" style="margin-bottom: 0px;margin-right: 100%;padding-right: 0px;padding-left: 0px;margin-left: -300px;color: rgb(255,255,255);">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item" style="padding-bottom: 0px;margin-top: 15px;"></li>
                     <li class="nav-item"></li>
@@ -24,7 +24,7 @@
         </div>
     </nav>
     <section class="position-relative py-4 py-xl-5">
-        <div class="container" style="margin-top: 75px;">
+        <div class="container" style="margin-top: 2%;">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <h2>Sąd Okręgowy w Krakowie</h2>
@@ -33,29 +33,16 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
-                    <div class="card mb-5">
+                    <div class="card mb-5" style="border-style: none;">
                         <div class="card-body d-flex flex-column align-items-center" style="box-shadow: 0px 7px 13px rgba(33,37,41,0.25);">
-                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="margin-top: 11px;padding-bottom: 0px;padding-top: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
+                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="margin-top: 11%;padding-bottom: 0px;padding-top: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
                                 </svg></div>
                             <form class="text-center" method="post">
                                 {% csrf_token %}
-						        <div class="input-group mb-3">
-							        <div class="input-group-append">
-								        <span class="input-group-text"><i class="fas fa-user"></i></span>
-							        </div>
-
-							        <input type="text" name="username" placeholder="ID użytkownika..." class="form-control">
-						        </div>
-
-						        <div class="input-group mb-2">
-							        <div class="input-group-append">
-								        <span class="input-group-text"><i class="fas fa-key"></i></span>
-							        </div>
-
-								    <input type="password" name="password" placeholder="Hasło..." class="form-control" >
-						        </div>
-                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(13, 110, 253);">Zaloguj</button></div>
+                                    <div class="mb-3"><input type="text" name="username" placeholder="ID użytkownika..." class="form-control"></div>
+                                    <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Hasło"></div>
+                                    <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(13, 110, 253);">Zaloguj</button></div>
                             </form>
                         </div>
                         {% for message in messages %}
@@ -65,8 +52,8 @@
                 </div>
             </div>
         </div>
-        <div style="padding-top: 21px;margin-top: 185px;">
-            <footer class="text-center py-4" style="margin-top: 179px;">
+        <div style="padding-top: 21px;margin-top: 0%; bottom:0; position: fixed; width: 100%;">
+            <footer class="text-center py-4" style="margin-top: 5%;">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-lg-3">
                         <div class="col">

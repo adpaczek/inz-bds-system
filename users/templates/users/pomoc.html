@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
-    <title>Baza biegłych</title>
+    <title>Pomoc</title>
     {% load static %}
     <link rel="stylesheet" href="{% static '/assets/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/Nunito.css' %}">
@@ -42,7 +42,7 @@
                 <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="margin-left: 224px;margin-top: 70px;height: 41px;">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 500px;">
-                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_u' %}">Panel użytkownika&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey;background-color:transparent; border:none;">Baza biegłych</button></span></div>
+                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_u' %}">Panel użytkownika&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey;background-color:transparent; border:none;">Pomoc</button></span></div>
                         </form>
                     </div>
                 </nav>
@@ -92,56 +92,6 @@
                     <div></div>
                 </div>
                 <div class="container" style="width: 1900px;margin-left: 349px;padding: 0px;padding-top: 0px;margin-right: 0px;margin-bottom: 0px;">
-                    <div class="row" style="padding-top: 0px;margin-top: -45px;">
-                        <div class="col-md-12 col-xxl-12 hrz-txt-scroll" style="padding-bottom: 319px;margin-top: 75px;white-space: nowrap;border: 1px none rgb(173,173,173);width: 1500px;margin-bottom: -320px;margin-left: -206px;" data-bs-smooth-scroll="true">
-                            <div>
-                                <div class="col-md-12 search-table-col hrz-txt-scroll" style="margin: -26px 0px 0px;"><span class="counter pull-right"></span>
-                                    <form class="search-form" style="width: 1287px;margin: 7px 5px;">
-                                        <div></div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div></div>
-                            <div class="card shadow" style="width: 1600px;margin-left: 114px;border-style: none;">
-                                <div class="card-header py-3">
-                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Przeszukaj biegłych</p>
-                                </div>
-                                <div class="card-body">                                                                              
-                                    <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
-                                        <table class="table my-0" id="dataTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>Tytuł</th>
-                                                    <th>Imię</th>
-                                                    <th>Nazwisko</th>
-                                                    <th>Specjalność</th>
-                                                    <th>Specjalizacja</th>
-                                                    <th>Kadencja</th>
-                                                    <th>Miejscowość</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            
-                                            {% for expert in experts_list %}
-                                                <tr>
-                                                    <td>{{expert.ex_title}}</td>
-                                                    <td>{{expert.name}}</td> 
-                                                    <td>{{expert.surname}}</td>
-                                                    <td>{{expert.speciality}}</td>
-                                                    <td>{{expert.specialisation}}</td>                                                     
-                                                    <td>{{expert.term}}</td>
-                                                    <td>{{expert.locality}}</td>
-
-                                                </tr>
-                                            {% endfor %}    
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <footer class="bg-white sticky-footer">

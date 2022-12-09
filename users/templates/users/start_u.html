@@ -17,9 +17,6 @@
     <link rel="stylesheet" href="{% static '/assets/css/Table-With-Search-search-table.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/Table-With-Search.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/Tamplate-SB-Admin-on-BSS.css' %}">
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -108,7 +105,20 @@
                                     <div class="card-header py-3">
                                         <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Przeszukaj akta</p>
                                     </div>
-                                    <div class="container">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 text-nowrap">
+                                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Wyświetlanie&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                                            <option value="10" selected="">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>&nbsp;</label></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Szukaj..."></label></div>
+                                            </div>
+                                        </div>
                                         <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
                                             <table class="table my-0" id="dataTable">
                                                 <thead>
@@ -117,7 +127,6 @@
                                                         <th>Sąd</th>
                                                         <th>Artykuł</th>
                                                         <th>Zawartość teczki</th>
-                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -128,7 +137,6 @@
                                                         <td>{{courtfile.court}}</td>
                                                         <td>{{courtfile.article}}</td>
                                                         <td>{{courtfile.contents_list}}</td>
-                                                        <td>Prośba o dostęp</td>
                                                     </tr>
                                                 {% endfor %}   
 
@@ -142,6 +150,22 @@
                                                     </tr>
                                                 </tfoot>
                                             </table>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 align-self-center">
+                                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Wyświetlanie 1 do 10 z 27</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                                    <ul class="pagination">
+                                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -249,20 +273,6 @@
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/database.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script>
-        $("#dataTable").DataTable({
-            paging: true,
-            pageLength: 10,
-            lengthChange: true,
-            autoWidth: true,
-            searching: true,
-            bInfo: true,
-            bSort: true,  
-        })
-
-    </script> 
 </body>
 
 </html>

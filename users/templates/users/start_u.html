@@ -125,10 +125,14 @@
                                                     <td>{{courtfile.signature}}</td>
                                                     <td>{{courtfile.court}}</td>
                                                     <td>{{courtfile.article}}</td>
-                                                    <td>{{courtfile.contents_list}}</td>
-                                                    <td>Prośba o dostęp</td>
+                                                    <td><a href="{% url 'podglad' courtfile.id %}" button class="btn btn-primary" type="button">Podgląd</a></td>
+                                                    <form method="POST">
+                                                        {% csrf_token %}
+                                                        <td><a href="{% url 'access' courtfile.id %}" button class="btn btn-primary" type="button">Uzyskaj dostęp</a></td> 
+                                                    </form>
                                                 </tr>
-                                            {% endfor %}   
+                                            {% endfor %} 
+                                            </tbody>  
                                         </table>
                                     </div>
                                 </div>
@@ -148,11 +152,11 @@
                                             <div class="text-md-end dataTables_filter" id="dataTable_filter-1"><label class="form-label"></label></div>
                                         </div>
                                         <div class="col">
-                                            <div class="text-md-end dataTables_filter" id="dataTable_filter-2"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Szukaj..."></label></div>
+                                            
                                         </div>
                                     </div>
                                     <div class="table-responsive table mt-2" id="dataTable-2" role="grid" aria-describedby="dataTable_info">
-                                        <table class="table my-0" id="dataTable">
+                                        <table class="table my-0" id="dataTable2">
                                             <thead>
                                                 <tr>
                                                     <th>Prośby</th>
@@ -160,69 +164,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Airi Satou</td>
-                                                    <td>$162,700</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Angelica Ramos</td>
-                                                    <td>$1,200,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ashton Cox</td>
-                                                    <td>$86,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Bradley Greer</td>
-                                                    <td>$132,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Brenden Wagner</td>
-                                                    <td>$206,850</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Brielle Williamson</td>
-                                                    <td>$372,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Bruno Nash<br></td>
-                                                    <td>$163,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Caesar Vance</td>
-                                                    <td>$106,450</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cara Stevens</td>
-                                                    <td>$145,600</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>$433,060</td>
-                                                </tr>
+       
                                             </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td><strong>Prośby</strong></td>
-                                                    <td><strong>Status</strong></td>
-                                                </tr>
-                                            </tfoot>
                                         </table>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 align-self-center"></div>
-                                        <div class="col-md-6">
-                                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                                <ul class="pagination">
-                                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
+                                    </div>                                
                                 </div>
                             </div>
                         </div>
@@ -255,6 +200,21 @@
 
             "columnDefs": [{
                 "targets": [3,4],
+                "orderable": false
+            }]
+        });
+
+        $("#dataTable2").DataTable({
+            paging: true,
+            pageLength: 10,
+            lengthChange: true,
+            autoWidth: true,
+            searching: false,
+            bInfo: true,
+            bSort: true, 
+
+            "columnDefs": [{
+                "targets": [0,1],
                 "orderable": false
             }]
         });

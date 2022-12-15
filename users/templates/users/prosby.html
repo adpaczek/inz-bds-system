@@ -93,6 +93,55 @@
                     <div></div>
                 </div>
                 <div class="container" style="width: 1900px;margin-left: 349px;padding: 0px;padding-top: 0px;margin-right: 0px;margin-bottom: 0px;">
+                    <div class="row" style="padding-top: 0px;margin-top: -45px;">
+                        <div class="col-md-12 col-xxl-12 hrz-txt-scroll" style="padding-bottom: 319px;margin-top: 75px;white-space: nowrap;border: 1px none rgb(173,173,173);width: 1500px;margin-bottom: -320px;margin-left: -206px;" data-bs-smooth-scroll="true">
+                            <div>
+                                <div class="col-md-12 search-table-col hrz-txt-scroll" style="margin: -26px 0px 0px;"><span class="counter pull-right"></span>
+                                    <form class="search-form" style="width: 1287px;margin: 7px 5px;">
+                                        <div></div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div></div>
+                            <div class="card shadow" style="width: 1600px;margin-left: 114px;border-style: none;">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Prośby o dostęp do akt</p>
+                                </div>
+                                <div class="card-body">                                                                              
+                                    <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                        <table class="table my-0" id="dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Użytkownik</th>
+                                                    <th>Akta</th>
+                                                    <th>Status</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                            {% for access_request in request_list %}
+                                                <tr>
+                                                    <td>{{access_request.user}}</td>
+                                                    <td>{{access_request.signature}}</td>
+                                                    {% if access_request.status == True %}
+                                                    <td>Zaakceptowana</td>
+                                                    {% else %}
+                                                    <td>Oczekująca</td>
+                                                    {% endif %}
+                                                    <td><a href="" button class="btn btn-primary" type="button">Zmień status</a> 
+                                                        <a href="{% url 'usuwanieP' access_request.id %}" button class="btn btn-primary" type="button">Usuń</a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}    
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <footer class="bg-white sticky-footer">
@@ -120,7 +169,7 @@
             bSort: true, 
 
             "columnDefs": [{
-                "targets": [3,4],
+                "targets": [2,3],
                 "orderable": false
             }]
         });

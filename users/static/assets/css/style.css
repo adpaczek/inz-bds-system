@@ -1,9 +1,14 @@
-.dataTables_paginate {
-    margin-top: 100px !important;
-  }
-
-  .dataTables_filter {
-    margin-bottom: 10px !important;
-  }
-
+.footer.sticky-footer{
+  padding:2rem 0;
+  flex-shrink:0;
+  bottom:0;
+  height:20%;
+}
+.footer.sticky-footer .copyright{
+  line-height:1;
+  font-size:.8rem;
+}
+.body.sidebar-toggled footer.sticky-footer{
+  width:100%;
+}
 

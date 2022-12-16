@@ -3,6 +3,8 @@ from turtle import title
 from unittest.util import _MAX_LENGTH
 import xdrlib
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Court(models.Model):
@@ -51,3 +53,11 @@ class ExpertsStatement(models.Model):
 
     def __str__(self):
         return self.statement_title
+
+class AccessRequest(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    status = models.BooleanField(null=True)
+    signature = models.ForeignKey(CourtFile, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f'{self.signature}'

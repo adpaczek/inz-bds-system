@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Baza Dokumentów Sądowych</title>
     {% load static %}
     <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}">
@@ -11,21 +11,13 @@
     <link rel="stylesheet" href="{% static '/assets/css/aos.min.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/Navbar-With-Button-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/styles.css' %}">
 </head>
 
 <body style="border-style: none;">
     <nav class="navbar navbar-light navbar-expand-md py-3" style="background: rgb(13,110,253);margin-bottom: -16px;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1" style="margin-bottom: 0px;margin-right: -287px;padding-right: 0px;padding-left: 0px;margin-left: -300px;">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item" style="padding-bottom: 0px;margin-top: 15px;">
-                        <div class="nav-item dropdown pulse animated" data-bss-disabled-mobile="true"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" data-bss-disabled-mobile="true" data-aos="fade" href="#glowna_menu" style="border-style: none;font-size: 25px;padding-top: 0px;margin-bottom: 0px;color: #ffffff;margin-top: 0px;padding-bottom: 0px;padding-right: 0px;margin-right: 0px;"><i class="fas fa-bars" style="font-size: 36px;"></i></a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                        </div>
-                    </li>
-                    <li class="nav-item"></li>
-                </ul><a href= "{% url 'login' %}" button class="btn btn-primary" type="button" style="margin-right: 0px;background: rgb(0,84,210);font-size: 21px;margin-left: 0px;border-style: none;border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Zaloguj</a>
-            </div>
+        <div class="container">
+            <a href= "{% url 'login' %}" button class="btn btn-primary" type="button" style="margin-right: 0px;background: rgb(0,84,210);font-size: 16px;color: white; margin-left: 98%;border-style: none;  border-color: rgb(75,91,235);padding-left: 26px;padding-right: 26px;">Zaloguj</a>
         </div>
     </nav>
     <section>
@@ -41,7 +33,7 @@
                             <h4 class="card-title">Baza akt spraw</h4>
                             <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                         </div>
-                        <div class="card-footer p-4 py-3" style="margin-top: 0px;margin-bottom: 0px;"><a href="#">Learn more&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                        <div class="card-footer p-4 py-3" style="margin-top: 0px;margin-bottom: 0px;"><a href="#">Dowiedz się więcej&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
                                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
                                 </svg></a></div>
                     </div>
@@ -55,7 +47,7 @@
                             <h4 class="card-title">Baza opinii biegłych</h4>
                             <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                         </div>
-                        <div class="card-footer p-4 py-3"><a href="#">Learn more&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                        <div class="card-footer p-4 py-3"><a href="#">Dowiedz się więcej&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
                                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
                                 </svg></a></div>
                     </div>
@@ -69,7 +61,7 @@
                             <h4 class="card-title">Baza biegłych</h4>
                             <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                         </div>
-                        <div class="card-footer p-4 py-3"><a href="#">Learn more&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                        <div class="card-footer p-4 py-3"><a href="#">Dowiedz się więcej&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
                                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
                                 </svg></a></div>
                     </div>

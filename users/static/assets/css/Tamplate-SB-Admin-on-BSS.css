@@ -29,7 +29,7 @@ a {
 }
 
 #layoutSidenav #layoutSidenav_nav {
-  flex-basis: 225px;
+  flex-basis: 15%;
   flex-shrink: 0;
   transition: transform 0.15s ease-in-out;
   z-index: 1038;
@@ -67,7 +67,6 @@ a {
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
   width: 225px;
   height: 100vh;
-  z-index: 1038;
 }
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
@@ -109,6 +108,10 @@ a {
   flex-direction: column;
   height: 100%;
   flex-wrap: nowrap;
+  position: fixed;
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
 }
 
 .sb-sidenav .sb-sidenav-menu {
@@ -137,6 +140,10 @@ a {
   padding-bottom: 0.75rem;
   position: relative;
   color: #b3b3b3;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link .a:hover{
+  color: black;
 }
 
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
@@ -188,7 +195,7 @@ a {
   color: #fff;
 }
 
-.sb-sidenav-dark .sb-sidenav-menu .nav div .nav-link.active {
+.sb-sidenav-dark .sb-sidenav-menu .nav .a .nav-link .nav-link.active {
   color: #fff;
 }
 
@@ -200,8 +207,8 @@ a {
   background-color: #343a40;
 }
 
-.nav-link.active {
-}
+
+
 
 
 .dataTables_paginate {

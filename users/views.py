@@ -172,10 +172,9 @@ def usuwanieProsby(request, delete_id):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
 def accessView(request, access_id):
-    access_request = CourtFile.objects.get(pk=access_id)
     current_user = request.user
     if request.method == 'POST':
-        entry = AccessRequest.objects.create(user=current_user, status=0 ,signature=access_request)
+        access_request = CourtFile.objects.get(pk=access_id)
+        entry = AccessRequest.objects.create(user=current_user, status=0, signature=access_request)
         entry.save(force_insert=True)
-        print("post")
     return redirect('start_u')

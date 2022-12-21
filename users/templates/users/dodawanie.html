@@ -23,7 +23,7 @@
                 </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0">
                     <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><i class="far fa-user-circle text-center" style="font-size: 100px;margin-left: 11px;"></i></div>
                 </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" style="height: 169px;">
-                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><span style="font-size: 18px;font-weight: bold;padding-left: 0px;margin-left: -25px;">{{ user.username }}</span></div>
+                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><span style="font-size: 18px;font-weight: bold;padding-left: 0px;margin-left: -25px;">ID użytkownika</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar" style="margin-top: -51px;margin-left: -25px;">
@@ -74,7 +74,7 @@
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"><span class="d-none d-lg-inline me-2 text-gray-600 small">{{ user.username }}</span></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"><span class="d-none d-lg-inline me-2 text-gray-600 small">ID użytkownika</span></a>
                                     
                                 </div>
                             </li>
@@ -92,93 +92,86 @@
                 <div class="container-fluid" style="margin-left: 225px;margin-top: 127px;">
                     <div></div>
                 </div>
-                <form method="POST" action="" enctype="multipart/form-data">
-                    <div class="container" style="margin-left: 290px;">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card shadow" style="border-style: none;width: 1000px;height: 600px;">
-                                    <div class="card-header py-3">
-                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Dodawanie akt</p>
+                <div class="container" style="margin-left: 290px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card shadow" style="border-style: none;width: 1000px;height: 600px;">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Dodawanie akt</p>
+                                </div>
+                                <div class="card-body">
+                                    <div style="width: 500px;">
+                                            <form method="POST" action="" enctype="multipart/form-data"></form>
+                                                {% csrf_token %}
+                                                <span>Wybierz sąd, z którego pochodzą akta: {{form.court}} </span><br>
+                                                <span>Wpisz sygnaturę akt: {{form.signature}} </span><br>
+                                                <span>Wpisz artykuł sprawy: {{form.article}}</span>
                                     </div>
-                                    <div class="card-body">
-                                        <div style="width: 500px;">
-                                                
-                                                    {% csrf_token %}
-                                                    <span>Wybierz sąd, z którego pochodzą akta: {{form.court}} </span><br>
-                                                    <span>Wpisz sygnaturę akt: {{form.signature}} </span><br>
-                                                    <span>Wpisz artykuł sprawy: {{form.article}}</span>
-                                                    
-                                                
-                                                
-                                        </div>
-                                        <div style="width: 500px;height: 300px;border: 1px solid rgb(191,191,191);border-bottom-color: rgba(133,135,150,0.43);">
-                                            <div class="card">
-                                                <div class="card-header py-3">
-                                                    <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Spis treści</p>
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-text">Załącz pliki do spisu treści teczki sądowej:</p>
-                                                    <ul class="list-group">
-                                                        <li class="list-group-item"><span><button class="btn btn-primary" type="button" style="background: rgb(78,115,223);">{{form.contents_list}}</button></span></li>
-                                                    </ul>
-                                                </div>
+                                    <div style="width: 500px;height: 300px;border: 1px solid rgb(191,191,191);border-bottom-color: rgba(133,135,150,0.43);">
+                                        <div class="card">
+                                            <div class="card-header py-3">
+                                                <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Spis treści</p>
                                             </div>
-                                        </div>
-                                        <div style="width: 400px;height: 490px;margin-left: 540px;margin-top: -425px;border: 1px solid rgba(133,135,150,0.43);">
-                                            <div class="card">
-                                                <div class="card-header py-3" style="border-radius: 0px;">
-                                                    <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Podgląd</p>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div>
-                                                        <span>Wybierz okładkę:</span>
-                                                    </div>
-                                                </div>
+                                            <div class="card-body">
+                                                <p class="card-text">Załącz pliki do spisu treści teczki sądowej:</p>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item"><span><button class="btn btn-primary" type="button" style="background: rgb(78,115,223);">{{form.contents_list}}</button></span></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card shadow" style="border-style: none;width: 500px;margin-left: 370px;height: 500px;">
-                                    <div class="card-header py-3">
-                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Uzupełnij informację</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                            <li class="list-group-item"><span>Wybierz z listy, czego dotyczy sprawa:</span></li>
-                                            <li class="list-group-item"><span>Sygn. akt ___/__</span></li>
-                                            <li class="list-group-item"><span>Artykuł</span></li>
-                                            <li class="list-group-item"><span>1</span></li>
-                                            <li class="list-group-item"><span>2</span></li>
-                                            <li class="list-group-item"><span>3</span></li>
-                                            <li class="list-group-item"><span>4</span></li>
-                                            <li class="list-group-item"><span>5</span></li>
-                                            <li class="list-group-item"><span>7</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card shadow" style="border-style: none;width: 500px;margin-left: 370px;height: 85px;margin-top: 15px;">
-                                    <div class="card-body" style="text-align: center;">
-                                        <button class="btn btn-primary" type="submit" style="background: rgb(78, 115, 223);margin-top: 5px;width: 211.4062px;height: 45px;">Prześlij</button>
+                                    <div style="width: 400px;height: 490px;margin-left: 540px;margin-top: -425px;border: 1px solid rgba(133,135,150,0.43);">
+                                        <div class="card">
+                                            <div class="card-header py-3" style="border-radius: 0px;">
+                                                <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Podgląd</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <div>
+                                                    <span>Wybierz okładkę:</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12" style="border: 1px none rgb(173,173,173);">
-                                <div></div>
-                                <div class="card shadow" style="border-style: none;width: 1520px;margin-top: 20px;">
-                                    <div class="card-header py-3" style="border-style: none;border-bottom-style: solid;border-bottom-color: rgba(159,159,159,0.176);background: rgba(0,0,0,0);">
-                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Sygn. akt ___________________________________ / _____________</p>
-                                    </div>
+                        <div class="col-md-6">
+                            <div class="card shadow" style="border-style: none;width: 500px;margin-left: 370px;height: 500px;">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Uzupełnij informację</p>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span>Wybierz z listy, czego dotyczy sprawa:</span></li>
+                                        <li class="list-group-item"><span>Sygn. akt ___/__</span></li>
+                                        <li class="list-group-item"><span>Artykuł</span></li>
+                                        <li class="list-group-item"><span>1</span></li>
+                                        <li class="list-group-item"><span>2</span></li>
+                                        <li class="list-group-item"><span>3</span></li>
+                                        <li class="list-group-item"><span>4</span></li>
+                                        <li class="list-group-item"><span>5</span></li>
+                                        <li class="list-group-item"><span>7</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card shadow" style="border-style: none;width: 500px;margin-left: 370px;height: 85px;margin-top: 15px;">
+                                <div class="card-body" style="text-align: center;"><button class="btn btn-primary" type="submit" style="background: rgb(78, 115, 223);margin-top: 5px;width: 211.4062px;height: 45px;">Prześlij</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="border: 1px none rgb(173,173,173);">
+                            <div></div>
+                            <div class="card shadow" style="border-style: none;width: 1520px;margin-top: 20px;">
+                                <div class="card-header py-3" style="border-style: none;border-bottom-style: solid;border-bottom-color: rgba(159,159,159,0.176);background: rgba(0,0,0,0);">
+                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Sygn. akt ___________________________________ / _____________</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form> 
-                {{form.errors}}
-            </form>     
+                </div>
+            </form> 
+            {{form.errors}}
             </div>
             <footer class="bg-white sticky-footer" style="margin-top: 60px;">
                 <div class="container my-auto">

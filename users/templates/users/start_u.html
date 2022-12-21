@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{% static '/assets/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/Nunito.css' %}">
     <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css%22%3E">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body id="page-top">
@@ -20,7 +23,7 @@
                 </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0">
                     <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><i class="far fa-user-circle text-center" style="font-size: 100px;margin-left: 11px;"></i></div>
                 </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" style="height: 169px;">
-                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><span style="font-size: 18px;font-weight: bold;padding-left: 0px;margin-left: -25px;">{{ user.username }}</span></div>
+                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><span style="font-size: 18px;font-weight: bold;padding-left: 0px;margin-left: -25px;">ID użytkownika</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar" style="margin-top: -51px;margin-left: -25px;">
@@ -70,7 +73,7 @@
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"><span class="d-none d-lg-inline me-2 text-gray-600 small">{{ user.username }}</span></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"><span class="d-none d-lg-inline me-2 text-gray-600 small">ID użytkownika</span></a>
                                     
                                 </div>
                             </li>
@@ -125,7 +128,7 @@
                                                     <td><a href="{% url 'podglad' courtfile.id %}" button class="btn btn-primary" type="button">Podgląd</a></td>
                                                     <form method="POST">
                                                         {% csrf_token %}
-                                                        <td><a href="{% url 'access' courtfile.id %}" button class="btn btn-primary" type="submit">Uzyskaj dostęp</a></td> 
+                                                        <td><a href="{% url 'access' courtfile.id %}" button class="btn btn-primary" type="button">Uzyskaj dostęp</a></td> 
                                                     </form>
                                                 </tr>
                                             {% endfor %} 

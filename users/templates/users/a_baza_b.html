@@ -118,8 +118,7 @@
                                                     <th>Nazwisko</th>
                                                     <th>Specjalność</th>
                                                     <th>Specjalizacja</th>
-                                                    <th>Kadencja</th>
-                                                    <th>Miejscowość</th>
+                                                    <th>Szczegóły</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -130,10 +129,8 @@
                                                     <td>{{expert.name}}</td> 
                                                     <td>{{expert.surname}}</td>
                                                     <td>{{expert.speciality}}</td>
-                                                    <td>{{expert.specialisation}}</td>                                                     
-                                                    <td>{{expert.term}}</td>
-                                                    <td>{{expert.locality}}</td>
-
+                                                    <td>{{expert.specialisation}}</td> 
+                                                    <td><a href="{% url 'a_biegly' expert.id %}" button class="btn btn-primary" type="button">Zobacz</a></td>                                                 
                                                 </tr>
                                             {% endfor %}   
 
@@ -169,11 +166,6 @@
             searching: true,
             bInfo: true,
             bSort: true, 
-
-            "columnDefs": [{
-                "targets": [3,4],
-                "orderable": false
-            }]
         });
 
     </script> 

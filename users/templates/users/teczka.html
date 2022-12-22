@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
-    <title>Teczka</title>
+    <title>Edycja teczki dla archiwizatora</title>
     {% load static %}
     <link rel="stylesheet" href="{% static '/assets/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/Nunito.css' %}">
@@ -25,10 +25,11 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar" style="margin-top: -51px;margin-left: -25px;">
                     <li class="nav-item"><a class="nav-link active" href=""><span style="font-size: 18.6px;">Menu</span><i class="fas fa-chevron-down" style="margin-left: 8px;"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'info' %}"><i class="fas fa-info-circle"></i><span>Informacje o sądzie</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'baza_b' %}"><i class="fas fa-table"></i><span>Baza biegłych</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'baza_ob' %}"><i class="fas fa-table"></i><span>Baza opinii biegłych</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'pomoc' %}"><i class="far fa-question-circle"></i><span>Pomoc</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_info' %}"><i class="fas fa-info-circle"></i><span>Informacje o sądzie</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_baza_b' %}"><i class="fas fa-table"></i><span>Baza biegłych</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_ob' %}"><i class="fas fa-table"></i><span>Baza opinii biegłych</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'prosby' %}"><i class="far fa-question-circle"></i><span>Prośby</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_pomoc' %}"><i class="far fa-question-circle"></i><span>Pomoc</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"></div>
                 <div style="margin-left: -30px;margin-top: 446px;"><span style="color: rgba(255,255,255,0.54);">Wersja 1.0.0.0</span></div>
@@ -38,8 +39,8 @@
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="margin-left: 224px;margin-top: 70px;height: 41px;">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 500px;">
-                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_u' %}">Panel użytkownika&nbsp;</a></button>&nbsp;|&nbsp;</span></div>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 650px;">
+                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" onclick="history.back()"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_u' %}">Panel użytkownika&nbsp;</a></button>&nbsp;|&nbsp;</span></div>
                         </form>
                     </div>
                 </nav>
@@ -120,14 +121,6 @@
                                         <li class="list-group-item"><span>Akta sprawy o wykroczenie</span></li>
                                         <li class="list-group-item"><span>Sygn. akt ___/__</span></li>
                                         <li class="list-group-item"><span>Artykuł</span></li>
-                                        <li class="list-group-item"><span>1</span></li>
-                                        <li class="list-group-item"><span>2</span></li>
-                                        <li class="list-group-item"><span>3</span></li>
-                                        <li class="list-group-item"><span>4</span></li>
-                                        <li class="list-group-item"><span>5</span></li>
-                                        <li class="list-group-item"><span>6</span></li>
-                                        <li class="list-group-item"><span>7</span></li>
-                                        <li class="list-group-item"><span>8</span></li>
                                     </ul>
                                 </div>
                             </div>

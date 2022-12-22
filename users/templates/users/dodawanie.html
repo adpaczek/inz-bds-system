@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css%22%3E">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -42,8 +44,8 @@
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="margin-left: 224px;margin-top: 70px;height: 41px;">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 500px;">
-                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_a' %}">Panel archiwizatora&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey;background-color:transparent; border:none;">Dodawanie akt</button></span></div>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 650px;">
+                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" onclick="history.back()"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_a' %}">Panel archiwizatora&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey;background-color:transparent; border:none;">Dodawanie akt</button></span></div>
                         </form>
                     </div>
                 </nav>
@@ -101,38 +103,38 @@
                                         <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Dodawanie akt</p>
                                     </div>
                                     <div class="card-body">
-                                        <div style="width: 500px;">
-                                                
-                                                    {% csrf_token %}
-                                                    <span>Wybierz sąd, z którego pochodzą akta: {{form.court}} </span><br>
-                                                    <span>Wpisz sygnaturę akt: {{form.signature}} </span><br>
-                                                    <span>Wpisz artykuł sprawy: {{form.article}}</span>
-                                                    
-                                                
-                                                
-                                        </div>
-                                        <div style="width: 500px;height: 300px;border: 1px solid rgb(191,191,191);border-bottom-color: rgba(133,135,150,0.43);">
+                                        <div style="width: 430px;height: 490px;margin-top:2px;border: 1px solid rgb(191,191,191);border-bottom-color: rgba(133,135,150,0.43);">
                                             <div class="card">
                                                 <div class="card-header py-3">
-                                                    <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Spis treści</p>
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-text">Załącz pliki do spisu treści teczki sądowej:</p>
-                                                    <ul class="list-group">
-                                                        <li class="list-group-item"><span><button class="btn btn-primary" type="button" style="background: rgb(78,115,223);">{{form.contents_list}}</button></span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="width: 400px;height: 490px;margin-left: 540px;margin-top: -425px;border: 1px solid rgba(133,135,150,0.43);">
-                                            <div class="card">
-                                                <div class="card-header py-3" style="border-radius: 0px;">
-                                                    <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Podgląd</p>
+                                                    <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Informacje</p>
                                                 </div>
                                                 <div class="card-body">
                                                     <div>
-                                                        <span>Wybierz okładkę:</span>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item"><div>
+                                                                <div class="dropdown"><span>Wybierz z listy, czego dotyczy sprawa: </span><button class=" dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"></button>
+                                                                    <div class="dropdown-menu"><a class="dropdown-item" href="#">Sprawa karna</a><a class="dropdown-item" href="#">Sprawa o wykroczenie</a><a class="dropdown-item" href="#">Sprawa cywilna</a></div>
+                                                                </div>
+                                                            </div></li>
+                                                            {% csrf_token %}
+                                                            <li class="list-group-item"><span>Wybierz sąd, z którego pochodzą akta: {{form.court}}</span></li>
+                                                            <li class="list-group-item"><span>Wpisz sygnaturę akt: {{form.signature}}</span></li>
+                                                            <li class="list-group-item"><span>Wpisz artykuł sprawy: {{form.article}}</span></li>
+                                                        </ul>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="width: 500px;height: 490px;margin-left: 467px;margin-top: -489px;border: 1px solid rgba(133,135,150,0.43);">
+                                            <div class="card">
+                                                <div class="card-header py-3" style="border-radius: 0px;">
+                                                    <p class="text-primary m-0 fw-bold" style="font-size: 21px;text-align: center;">Spis treści</p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="card-text">Załącz skan spisu treści teczki sądowej:</p>
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item"><span>{{form.contents_list}}</span></li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,35 +144,21 @@
                             <div class="col-md-6">
                                 <div class="card shadow" style="border-style: none;width: 500px;margin-left: 370px;height: 500px;">
                                     <div class="card-header py-3">
-                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Uzupełnij informację</p>
+                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Podgląd</p>
                                     </div>
                                     <div class="card-body">
-                                        <ul class="list-group">
-                                            <li class="list-group-item"><span>Wybierz z listy, czego dotyczy sprawa:</span></li>
-                                            <li class="list-group-item"><span>Sygn. akt ___/__</span></li>
-                                            <li class="list-group-item"><span>Artykuł</span></li>
-                                            <li class="list-group-item"><span>1</span></li>
-                                            <li class="list-group-item"><span>2</span></li>
-                                            <li class="list-group-item"><span>3</span></li>
-                                            <li class="list-group-item"><span>4</span></li>
-                                            <li class="list-group-item"><span>5</span></li>
-                                            <li class="list-group-item"><span>7</span></li>
-                                        </ul>
+                                        <div>
+                                            <ul class="list-group">
+                                                <span>Wybierz okładkę teczki: </span>
+                                                <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Okładki</button>
+                                                <div class="dropdown-menu"><a class="dropdown-item" href="#">Sprawy karne</a><a class="dropdown-item" href="#">Sprawy o wykroczenia</a><a class="dropdown-item" href="#">Sprawy cywilne</a></div>
+                                                </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card shadow" style="border-style: none;width: 500px;margin-left: 370px;height: 85px;margin-top: 15px;">
                                     <div class="card-body" style="text-align: center;">
                                         <button class="btn btn-primary" type="submit" style="background: rgb(78, 115, 223);margin-top: 5px;width: 211.4062px;height: 45px;">Prześlij</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12" style="border: 1px none rgb(173,173,173);">
-                                <div></div>
-                                <div class="card shadow" style="border-style: none;width: 1520px;margin-top: 20px;">
-                                    <div class="card-header py-3" style="border-style: none;border-bottom-style: solid;border-bottom-color: rgba(159,159,159,0.176);background: rgba(0,0,0,0);">
-                                        <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Sygn. akt ___________________________________ / _____________</p>
                                     </div>
                                 </div>
                             </div>
@@ -187,8 +175,14 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="content/js/jquery.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="content/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
 </body>
 
 </html>

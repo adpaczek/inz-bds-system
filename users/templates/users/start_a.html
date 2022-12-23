@@ -116,6 +116,8 @@
                                                     <th>Artykuł</th>
                                                     <th>Zawartość teczki</th>
                                                     <th></th>
+                                                    <th></th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -126,7 +128,8 @@
                                                         <td>{{courtfile.court}}</td>
                                                         <td>{{courtfile.article}}</td>
                                                         <td><a href="{% url 'a_podglad' courtfile.id %}" button class="btn btn-primary" type="button">Podgląd</a></td>
-                                                        <td><a href="{% url 'usuwanieT' courtfile.id %}" button class="btn btn-primary" type="button">Usuń</a></td>
+                                                        <td><a href="{% url 'teczka' courtfile.id %}" button class="btn btn-primary" type="button">Edytuj</a></td>
+                                                        <td><a href="{% url 'usuwanieT' courtfile.id %}" button class="btn btn-primary" type="button">Usuń</a></td>                                                        
                                                     </tr>
                                                 {% endfor %} 
                                             </tbody>                                         

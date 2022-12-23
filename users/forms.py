@@ -1,6 +1,7 @@
 from socket import fromshare
+from urllib import request
 from django.forms import ModelForm
-from .models import CourtFile
+from .models import AccessRequest, CourtFile, File
 from django.contrib.auth.forms import UserCreationForm
 from django import forms 
 from django .contrib.auth.models import User
@@ -24,3 +25,30 @@ class CourtfileForm(ModelForm):
             'article': 'Artykuł',
             'contents_list': 'Plik z zawartością'
         }
+
+class FileForm(ModelForm):
+    signature = forms.TextInput()
+    type = forms.TextInput()
+    scan = forms.FileField()
+    class Meta:
+        model = File
+        fields = ['signature', 'type', 'scan']
+
+class AccessForm(ModelForm):
+    user = forms.TextInput()
+    status = forms.TextInput()
+    signature = forms.TextInput()
+    decscription = forms.Textarea()
+
+    class Meta:
+        model = AccessRequest
+        fields = ['user', 'status', 'signature', 'description']
+        labels = {
+            'user': 'Twoje id:',
+            'status': "Status:",
+            'signature': 'Sygnatura akt:',
+            'description': 'Opisz po co ci akta',
+        }
+
+
+

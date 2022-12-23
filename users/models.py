@@ -46,7 +46,7 @@ class Expert(models.Model):
 
 class ExpertsStatement(models.Model):
     signature = models.ForeignKey(CourtFile, on_delete=models.CASCADE, null=True)
-    scan = models.FileField(upload_to = "E:\\Dev\\inz\\inzynierka\\users\\cfiles\\statements", null=True)
+    scan = models.FileField(upload_to = "E:\\Dev\\inz\\inzynierka\\users\\cfiles\\statements", null=True, blank=True)
     statement_title = models.CharField(max_length=200, null=True)
     expert = models.ForeignKey(Expert, on_delete=models.CASCADE, null=True)
     date = models.DateField(null=True)
@@ -55,9 +55,10 @@ class ExpertsStatement(models.Model):
         return self.statement_title
 
 class AccessRequest(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    status = models.BooleanField(null=True)
-    signature = models.ForeignKey(CourtFile, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True)
+    signature = models.ForeignKey(CourtFile, on_delete=models.CASCADE, null=True, blank=True)
+    description = models.TextField(null=True)
 
     def __str__(self):
-        return f'{self.signature}'
+        return f'{self.signature} {self.user}'

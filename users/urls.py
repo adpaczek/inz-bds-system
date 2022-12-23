@@ -22,10 +22,13 @@ urlpatterns = [
     path('prosby/', views.prosbyPage, name="prosby"),
     path('podglad/<list_id>', views.podgladPage, name="podglad"),
     path('dodawanie/', views.dodawaniePage, name="dodawanie"),
+    path('teczka/<teczka_id>', views.teczkaPage, name="teczka"),
     path('a_podglad/<podglad_id>', views.apodgladPage, name="a_podglad"),
     path('usuwanieT/<delete_id>', views.usuwanieTeczki, name="usuwanieT"),
     path('usuwanieP/<delete_id>', views.usuwanieProsby, name="usuwanieP"),
     path('access/<access_id>', views.accessView, name="access"),
+    path('biegly/<biegly_id>', views.bieglyPage, name="biegly"),
+    path('a_biegly/<biegly_id>', views.abieglyPage, name="a_biegly"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

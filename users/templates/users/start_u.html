@@ -123,10 +123,12 @@
                                                     <td>{{courtfile.court}}</td>
                                                     <td>{{courtfile.article}}</td>
                                                     <td><a href="{% url 'podglad' courtfile.id %}" button class="btn btn-primary" type="button">Podgląd</a></td>
-                                                    <form method="POST">
-                                                        {% csrf_token %}
-                                                        <td><a href="{% url 'access' courtfile.id %}" button class="btn btn-primary" type="submit">Uzyskaj dostęp</a></td> 
-                                                    </form>
+                                                    <td>
+                                                        <form action="" method="POST">
+                                                            {% csrf_token %}
+                                                            <a href="{% url 'access' courtfile.id %}" button class="btn btn-primary" type="button">Uzyskaj dostęp</a>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             {% endfor %} 
                                             </tbody>  
@@ -161,6 +163,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
        
                                             </tbody>
                                         </table>

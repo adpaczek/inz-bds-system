@@ -1,17 +1,16 @@
 from audioop import reverse
 from contextvars import Context
 from pdb import post_mortem
-import queue
 from sunau import Au_read
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import AccessForm, CreateUserForm, CourtfileForm, FileForm
+from .forms import CreateUserForm, CourtfileForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from .models import CourtFile, ExpertsStatement, Expert, AccessRequest, File
+from .models import CourtFile, ExpertsStatement, Expert, AccessRequest
 from .decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib.auth.models import Group
 from django.views import generic
@@ -64,7 +63,6 @@ def startPage(request):
 @admin_only
 def astartPage(request):
     courtfiles_list = CourtFile.objects.all()
-    current_user = request.user
     context = {'courtfiles_list': courtfiles_list}
     return render(request, 'users/start_a.html', context)
 
@@ -103,7 +101,13 @@ def pomocPage(request):
 def podgladPage(request, list_id): 
     contents_list = CourtFile.objects.get(pk=list_id)    
     context = {'contents_list': contents_list}
-    return render(request, 'users/podglad.html', context)    
+    return render(request, 'users/podglad.html', context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['user'])
+def pomocPage(request):      
+    context = {}
+    return render(request, 'users/teczka.html', context)     
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['archiwizator'])
@@ -134,6 +138,25 @@ def ainfoPage(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['archiwizator'])
+def abieglyPage(request):
+    context = {}
+    return render(request, 'users/biegly.html', context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['archiwizator'])
+def ateczkaPage(request):
+    context = {}
+    return render(request, 'users/teczka.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['archiwizator'])
+def aocrPage(request):
+    context = {}
+    return render(request, 'users/ocr.html', context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['archiwizator'])
 def apomocPage(request):      
     context = {}
     return render(request, 'users/a_pomoc.html', context) 
@@ -159,19 +182,6 @@ def dodawaniePage(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['archiwizator'])
-def teczkaPage(request, teczka_id):  
-    teczka = CourtFile.objects.get(pk=teczka_id)
-    pliki = File.objects.all()
-    if request.method == 'POST':
-        form = FileForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-    else: 
-        form = FileForm()
-    return render(request, 'users/teczka.html', {'teczka': teczka, 'form': form, 'pliki': pliki})
-
-@login_required(login_url='login')
-@allowed_users(allowed_roles=['archiwizator'])
 def usuwanieTeczki(request, delete_id):
     data = CourtFile.objects.get(pk=delete_id)
     data.delete()
@@ -187,29 +197,27 @@ def usuwanieProsby(request, delete_id):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
 def accessView(request, access_id):
+    access_request = CourtFile.objects.get(pk=access_id)
     current_user = request.user
-    access_requests = CourtFile.objects.filter(pk=access_id)
     if request.method == 'POST':
-        form = AccessForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-    else: 
-        form = AccessForm()    
-    context = {'access_requests': access_requests, 'form': form}
-    return render(request, 'users/access.html', context)
+        entry = AccessRequest.objects.create(user=current_user, status=0 ,signature=access_request)
+        entry.save(force_insert=True)
+        print("post")
+    return redirect('start_u')
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
 def bieglyPage(request, biegly_id): 
     profile = Expert.objects.get(pk=biegly_id)
-    statements = ExpertsStatement.objects.filter(expert_id=biegly_id)   
+    statements = ExpertsStatement.objects.filter(expert_id=biegly_id)
     context = {'profile' : profile, 'statements': statements}
     return render(request, 'users/biegly.html', context) 
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['archiwizator'])
-def abieglyPage(request, biegly_id):  
+def abieglyPage(request, biegly_id):
     profile = Expert.objects.get(pk=biegly_id)
-    statements = ExpertsStatement.objects.filter(expert_id=biegly_id)   
-    context = {'profile' : profile, 'statements': statements}   
-    return render(request, 'users/a_biegly.html', context)
+    statements = ExpertsStatement.objects.filter(expert_id=biegly_id)
+    context = {'profile' : profile, 'statements': statements}
+    return render(request, 'users/a_biegly.html', context) 
+

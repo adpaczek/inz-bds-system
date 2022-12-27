@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
-    <title>Panel archiwizatora</title>
+    <title>Cyfryzacja skanu</title>
     {% load static %}
     <link rel="stylesheet" href="{% static '/assets/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/assets/css/Nunito.css' %}">
@@ -43,8 +43,8 @@
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="margin-left: 224px;margin-top: 70px;height: 41px;">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 500px;">
-                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_a' %}">Panel archiwizatora&nbsp;</a></button>&nbsp;|&nbsp;</span></div>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 650px;">
+                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" onclick="history.back()"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_a' %}">Panel archiwizatora&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;">Cyfryzacja skanu&nbsp;</button></span></div>
                         </form>
                     </div>
                 </nav>
@@ -93,53 +93,31 @@
                 <div class="container-fluid" style="margin-left: 225px;margin-top: 127px;">
                     <div></div>
                 </div>
-                <div class="container" style="width: 1900px;margin-left: 349px;padding: 0px;padding-top: 0px;margin-right: 0px;margin-bottom: 0px;">                    
-                    <div class="row" style="margin-top: 32px;padding-left: 0px;margin-left: -112px;">
-                        <div class="col-md-12" style="padding-bottom: 319px;margin-bottom: 0px;margin-top: 0px;margin-left: 0px;height: 730px;border: 1px none rgb(173,173,173);width: 1686px;">
-                            <div></div>
-                            <div class="card shadow" style="width: 1600px;margin-left: 7px;border-style: none;">
-                                <div class="card-header py-3" style="border-style: none;border-bottom-style: solid;border-bottom-color: rgba(159,159,159,0.176);background: rgba(0,0,0,0);">
-                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;width: 300px;">Przeszukaj akta</p>
-                                        <p style="margin-bottom: 0px;margin-top: -26px; margin-left:81%;"><a href= "{% url 'dodawanie' %}" button class="btn btn-primary" type="button" style="border-right-style: none;margin-top: -12px;margin-left: 125px;"><i class="fas fa-plus"></i>&nbsp; Dodaj nowe akta</a>&nbsp;</p>
-                                </div>
-                                <div class="card-body" style="margin: -10px;">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="text-md-end dataTables_filter" id="dataTable_filter-1"><label class="form-label"></label></div>
-                                        </div>                        
-                                    </div>
-                                    <div class="table-responsive table mt-2" id="dataTable-2" role="grid" aria-describedby="dataTable_info">
-                                        <table class="table my-0" id="dataTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>Sygnatura</th>
-                                                    <th>Sąd</th>
-                                                    <th>Artykuł</th>
-                                                    <th>Zawartość teczki</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            
-                                                {% for courtfile in courtfiles_list %}
-                                                    <tr>
-                                                        <td>{{courtfile.signature}}</td>
-                                                        <td>{{courtfile.court}}</td>
-                                                        <td>{{courtfile.article}}</td>
-                                                        <td><a href="{% url 'a_podglad' courtfile.id %}" button class="btn btn-primary" type="button">Podgląd</a></td>
-                                                        <td><a href="{% url 'usuwanieT' courtfile.id %}" button class="btn btn-primary" type="button">Usuń</a></td>
-                                                    </tr>
-                                                {% endfor %} 
-                                            </tbody>                                         
-                                        </table>
-                                    </div>
-                                </div>
+                <div class="container" style="width: 1900px;margin-left: 349px;padding: 0px;padding-top: 0px;margin-right: 0px;margin-bottom: 0px;">
+                    <div class="col-md-6">
+                        <div class="card shadow" style="border-style: none;width: 1200px;margin-left: 100px;height: 700px;">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">OCR - narzędzie do digitalizacji dokumentów</p>
                             </div>
+                            <div class="card-body">
+                                <section><input type="file" name="filefield" multiple="multiple">
+                                    <hr class="sidebar-divider my-0" style="padding-left: 0px;padding-top: 34px;">
+                                </section>
+                                <section><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-angle-double-right fa-sm text-white-50"></i>&nbsp;Analizuj</a>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"></li>
+                                    </ul>
+                                </section>
+                                <section>
+                                    <div class="toast-container"></div>
+                                </section>                          
+                            </div>                          
+                                                       
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="bg-white sticky-footer">
+            <footer class="bg-white sticky-footer" style="margin-top: 60px;">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
                 </div>
@@ -150,7 +128,6 @@
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <script src="{% static '/assets/js/database.js' %}"></script>
-    <script src="{% static '/assets/js/popup.js' %}"></script>
     <script src="assets/js/Table-With-Search.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="{% static '/assets/js/db.js' %}"></script>
@@ -163,11 +140,6 @@
             searching: true,
             bInfo: true,
             bSort: true, 
-
-            "columnDefs": [{
-                "targets": [3,4],
-                "orderable": false
-            }]
         });
 
     </script> 

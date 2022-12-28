@@ -134,6 +134,12 @@ def ainfoPage(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['archiwizator'])
+def aocrPage(request):
+    context = {}
+    return render(request, 'users/ocr.html', context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['archiwizator'])
 def apomocPage(request):      
     context = {}
     return render(request, 'users/a_pomoc.html', context) 

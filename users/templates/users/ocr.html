@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <title>Cyfryzacja skanu</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/assets/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Nunito.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css%22%3E">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark fixed-bottom align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 930px;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="far fa-chart-bar" style="font-size: 35px;"></i></div>
+                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 0px;padding-right: 50px;"><span style="font-size: 26px;">bds</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0">
+                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><i class="far fa-user-circle text-center" style="font-size: 100px;margin-left: 11px;"></i></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" style="height: 169px;">
+                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><span style="font-size: 18px;font-weight: bold;padding-left: 0px;margin-left: -25px;">{{ user.username }}</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar" style="margin-top: -51px;margin-left: -25px;">
+                    <li class="nav-item"><a class="nav-link active" href=""><span style="font-size: 18.6px;">Menu</span><i class="fas fa-chevron-down" style="margin-left: 8px;"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_info' %}"><i class="fas fa-info-circle"></i><span>Informacje o sądzie</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_baza_b' %}"><i class="fas fa-table"></i><span>Baza biegłych</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_ob' %}"><i class="fas fa-table"></i><span>Baza opinii biegłych</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ocr' %}" ><i class="fas fa-table"></i><span>Cyfryzacja skanu</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'prosby' %}"><i class="far fa-question-circle"></i><span>Prośby</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'a_pomoc' %}"><i class="far fa-question-circle"></i><span>Pomoc</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"></div>
+                <div style="margin-left: -30px;margin-top: 446px;"><span style="color: rgba(255,255,255,0.54);">Wersja 1.0.0.0</span></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="margin-left: 224px;margin-top: 70px;height: 41px;">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 650px;">
+                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" onclick="history.back()"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_a' %}">Panel archiwizatora&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;">Cyfryzacja skanu&nbsp;</button></span></div>
+                        </form>
+                    </div>
+                </nav>
+                <nav class="navbar navbar-light navbar-expand fixed-top bg-white mb-4 topbar static-top" style="margin-left: 224px;border-bottom: 1px solid rgba(133,135,150, 0.43)">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div><span>Sąd Okręgowy w ...</span></div>
+                        </form>
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="me-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"><span class="d-none d-lg-inline me-2 text-gray-600 small">{{ user.username }}</span></a>
+                                    
+                                </div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"><span class="d-none d-lg-inline me-2 text-gray-600 small">Wydział sądu</span></a>
+                                
+                                </div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow"><a href="{% url 'logout' %}" button class="btn btn-primary" type="button" style="height: 37px;margin-top: 17px;width: 94.6875px;">Wyloguj</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid" style="margin-left: 225px;margin-top: 127px;">
+                    <div></div>
+                </div>
+                <div class="container" style="width: 1900px;margin-left: 349px;padding: 0px;padding-top: 0px;margin-right: 0px;margin-bottom: 0px;">
+                    <div class="col-md-6">
+                        <div class="card shadow" style="border-style: none;width: 1200px;margin-left: 100px;height: 700px;">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">OCR - narzędzie do digitalizacji dokumentów</p>
+                            </div>
+                            <div class="card-body">
+                                <section><input type="file" name="filefield" multiple="multiple">
+                                    <hr class="sidebar-divider my-0" style="padding-left: 0px;padding-top: 34px;">
+                                </section>
+                                <section><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-angle-double-right fa-sm text-white-50"></i>&nbsp;Analizuj</a>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"></li>
+                                    </ul>
+                                </section>
+                                <section>
+                                    <div class="toast-container"></div>
+                                </section>                          
+                            </div>                          
+                                                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer" style="margin-top: 60px;">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="{% static '/assets/js/database.js' %}"></script>
+    <script src="assets/js/Table-With-Search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{% static '/assets/js/db.js' %}"></script>
+    <script>
+        $("#dataTable").DataTable({
+            paging: true,
+            pageLength: 10,
+            lengthChange: true,
+            autoWidth: true,
+            searching: true,
+            bInfo: true,
+            bSort: true, 
+        });
+
+    </script> 
+</body>
+
+</html>

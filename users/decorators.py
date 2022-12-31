@@ -21,7 +21,6 @@ def allowed_users(allowed_roles=[]):
                 return view_func(request, *args, **kwargs)
             else:
                 return HttpResponse('Nie masz odpowiednich uprawnień.')
-
         return wrapper_func
     return decorator
 

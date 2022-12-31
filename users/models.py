@@ -55,10 +55,9 @@ class ExpertsStatement(models.Model):
         return self.statement_title
 
 class AccessRequest(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, blank=True)
-    status = models.CharField(max_length=200, null=True, blank=True)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True, default="oczekująca")
     signature = models.ForeignKey(CourtFile, on_delete=models.CASCADE, null=True, blank=True)
-    description = models.TextField(null=True)
-
+    
     def __str__(self):
         return f'{self.signature} {self.user}'

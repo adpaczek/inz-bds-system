@@ -31,6 +31,7 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_info' %}"><i class="fas fa-info-circle"></i><span>Informacje o sądzie</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_baza_b' %}"><i class="fas fa-table"></i><span>Baza biegłych</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_ob' %}"><i class="fas fa-table"></i><span>Baza opinii biegłych</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ocr' %}" ><i class="fas fa-table"></i><span>Cyfryzacja skanu</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'prosby' %}"><i class="far fa-question-circle"></i><span>Prośby</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_pomoc' %}"><i class="far fa-question-circle"></i><span>Pomoc</span></a></li>
                 </ul>
@@ -43,7 +44,7 @@
                 <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="margin-left: 224px;margin-top: 70px;height: 41px;">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 0px;">
-                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" onclick="history.back()"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_a' %}">Panel archiwizatora&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey;background-color:transparent; border:none;">Informacje o sądzie</button></span></div>
+                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" onclick="history.back()"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_a' %}">Panel archiwizatora&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;">Informacje&nbsp;</button></span></div>
                         </form>
                     </div>
                 </nav>

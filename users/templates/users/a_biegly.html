@@ -27,9 +27,11 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar" style="margin-top: -51px;margin-left: -25px;">
+                    <li class="nav-item"><a class="nav-link active" href=""><span style="font-size: 18.6px;">Menu</span><i class="fas fa-chevron-down" style="margin-left: 8px;"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_info' %}"><i class="fas fa-info-circle"></i><span>Informacje o sądzie</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_baza_b' %}"><i class="fas fa-table"></i><span>Baza biegłych</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_ob' %}"><i class="fas fa-table"></i><span>Baza opinii biegłych</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ocr' %}" ><i class="fas fa-table"></i><span>Cyfryzacja skanu</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'prosby' %}"><i class="far fa-question-circle"></i><span>Prośby</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_pomoc' %}"><i class="far fa-question-circle"></i><span>Pomoc</span></a></li>
                 </ul>
@@ -105,10 +107,13 @@
                                     <li class="list-group-item"><span><b>Kadencja:</b> {{ profile.term}}</span></li>
                                     <li class="list-group-item"><span><b>Lokalizacja:</b> {{ profile.locality }}</span></li>
                                 </ul> 
+                                <p></p>
                                 <b>Wykonane opinie:</b>
                                 {% for statement in statements %}
                                 <ul class="list-group">
-                                    <li class="list-group-item"><span>{{ statement.statement_title}} {{ statement.signature}} {{ statement.date }}</span></li>                                                
+                                    <span>{{ statement.date }} - {{ statement.statement_title}}</span>
+                                    <span>{{ statement.signature}}</span>
+                                    <p></p>                                                                                
                                 </ul>  
                                 {% endfor %}                              
                             </div>  

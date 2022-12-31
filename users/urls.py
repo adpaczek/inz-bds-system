@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
+from .views import *
+
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -26,9 +28,12 @@ urlpatterns = [
     path('a_podglad/<podglad_id>', views.apodgladPage, name="a_podglad"),
     path('usuwanieT/<delete_id>', views.usuwanieTeczki, name="usuwanieT"),
     path('usuwanieP/<delete_id>', views.usuwanieProsby, name="usuwanieP"),
-    path('access/<access_id>', views.accessView, name="access"),
+    path('accept/<accept_id>', views.acceptPage, name="accept"),
+    path('send/<send_id>', views.sendingPage, name="send"),    
     path('biegly/<biegly_id>', views.bieglyPage, name="biegly"),
     path('a_biegly/<biegly_id>', views.abieglyPage, name="a_biegly"),
+    path('ocr/', views.OcrView.as_view(), name="ocr"),
+    path('process_image', process_image, name='process_image'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

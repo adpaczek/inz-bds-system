@@ -126,7 +126,7 @@
                                                     <td>
                                                         <form action="" method="POST">
                                                             {% csrf_token %}
-                                                            <a href="{% url 'access' courtfile.id %}" button class="btn btn-primary" type="button">Uzyskaj dostęp</a>
+                                                            <a class="confirm-access" href="{% url 'send' courtfile.id %}"><button class="btn btn-primary" type="button">Uzyskaj dostęp</button></a>
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -160,15 +160,19 @@
                                                 <tr>
                                                     <th>Prośby</th>
                                                     <th>Status</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
+                                                {% for access in access_list %}
+                                                    <tr>
+                                                        <td>{{ access.signature }}</td>
+                                                        <td>{{ access.status }}</td>
+                                                        <td><a href="{% url 'test' %}" button class="btn btn-primary" type="button">Podgląd</a></td>
 
-                                                </tr>
-       
+                                                    </tr>
+                                                {% endfor %}
+        
                                             </tbody>
                                         </table>
                                     </div>                                
@@ -222,6 +226,10 @@
                 "orderable": false
             }]
         });
+
+        $(document).on('click', '.confirm-access', function(){
+            return confirm('Czy na pewno chcesz wysłać prośbę o dostęp do tych akt?' );
+        })
 
     </script> 
 </body>

@@ -6,7 +6,7 @@ from sunau import Au_read
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import AccessForm, CreateUserForm, CourtfileForm, FileForm
+from .forms import CreateUserForm, CourtfileForm, FileForm, UploadForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -16,6 +16,19 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib.auth.models import Group
 from django.views import generic
 from django.contrib.auth.models import User
+from django.views.generic import FormView
+
+#from io import BytesIO
+#from reportlab.pdfgen import canvas
+
+import pytesseract  
+from PIL import Image
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
+#pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+#path_wkhtmltopdf = r'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
 
 def home(request):
     context= {}
@@ -53,9 +66,10 @@ def loginPage(request):
 	return render(request, 'users/login.html', context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['user'])
 def startPage(request):
     courtfiles_list = CourtFile.objects.all()
-    access_list = AccessRequest.objects.all()
+    access_list = AccessRequest.objects.filter(user=request.user)
     context = {'courtfiles_list': courtfiles_list, 'access_list': access_list}
     
     return render(request, 'users/start_u.html', context)
@@ -81,7 +95,7 @@ def bazabPage(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
-def bazaobPage(request):
+def bazaobPage(request):    
     estatements_list = ExpertsStatement.objects.all()
     context = {'estatements_list': estatements_list}
     return render(request, 'users/baza_ob.html', context)
@@ -101,16 +115,18 @@ def pomocPage(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
 def podgladPage(request, list_id): 
-    contents_list = CourtFile.objects.get(pk=list_id)    
-    context = {'contents_list': contents_list}
-    return render(request, 'users/podglad.html', context)    
+    pdf_file = CourtFile.objects.get(pk=list_id).contents_list
+    response = HttpResponse(pdf_file, content_type='application/pdf')    
+    response['Content-Disposition'] = 'inline; filename=spis.pdf'
+    return response   
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['archiwizator'])
 def apodgladPage(request, podglad_id): 
-    contents_list = CourtFile.objects.get(pk=podglad_id)    
-    context = {'contents_list': contents_list}
-    return render(request, 'users/a_podglad.html', context)    
+    pdf_file = CourtFile.objects.get(pk=podglad_id).contents_list
+    response = HttpResponse(pdf_file, content_type='application/pdf')    
+    response['Content-Disposition'] = 'inline; filename=spis.pdf'
+    return response      
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['archiwizator'])
@@ -185,18 +201,18 @@ def usuwanieProsby(request, delete_id):
     return redirect('prosby')
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['archiwizator'])
+def acceptPage(request, accept_id):
+    AccessRequest.objects.filter(pk=accept_id).update(status="zaakceptowana")
+    return redirect('prosby')
+
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
-def accessView(request, access_id):
-    current_user = request.user
-    access_requests = CourtFile.objects.filter(pk=access_id)
-    if request.method == 'POST':
-        form = AccessForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-    else: 
-        form = AccessForm()    
-    context = {'access_requests': access_requests, 'form': form}
-    return render(request, 'users/access.html', context)
+def sendingPage(request, send_id):
+    access_request = CourtFile.objects.get(pk=send_id)
+    print(access_request)
+    AccessRequest.objects.create(user=request.user, signature=access_request)    
+    return redirect('start_u')
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['user'])
@@ -213,3 +229,38 @@ def abieglyPage(request, biegly_id):
     statements = ExpertsStatement.objects.filter(expert_id=biegly_id)   
     context = {'profile' : profile, 'statements': statements}   
     return render(request, 'users/a_biegly.html', context)
+
+class OcrView(FormView):
+    form_class = UploadForm
+    template_name = 'users/ocr.html'
+    success_url = '/'
+
+    #def form_valid(self, form):
+    #    upload = self.request.FILES['file']
+    #    print(type(pytesseract.image_to_string(Image.open(upload))))
+    #    return super().form_valid(form)
+
+@csrf_exempt
+def process_image(request):
+    if request.method == 'POST':
+        response_data = {}
+        upload = request.FILES['file']
+        content = pytesseract.image_to_string(Image.open(upload))
+        response_data['content'] = content
+
+        return JsonResponse(response_data)
+
+#@csrf_exempt
+#def process_image(request):
+#    if request.method == 'POST':
+#        response_data = {}
+#        upload = request.FILES['file']
+#        content = pytesseract.image_to_string(Image.open(upload))
+#        print(content)
+#        buffer = BytesIO()
+#        c = canvas.Canvas(buffer)
+#        c.drawString(100, 100, content)
+#        c.save()
+#        response = HttpResponse(buffer.getvalue(), content_type='application/pdf')
+#        response['Content-Disposition'] = 'attachment; filename=hello.pdf'        
+#        return response

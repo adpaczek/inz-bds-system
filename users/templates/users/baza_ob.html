@@ -114,8 +114,7 @@
                                                     <th>Sygnatura</th>
                                                     <th>Biegły</th>
                                                     <th>Tytuł</th>
-                                                    <th>Data</th>
-                                                    <th>Skan</th>
+                                                    <th>Data wydania</th>                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -125,9 +124,7 @@
                                                     <td>{{expertsstatement.signature}}</td>
                                                     <td>{{expertsstatement.expert}}</td>
                                                     <td>{{expertsstatement.statement_title}}</td>
-                                                    <td>{{expertsstatement.date}}</td>
-                                                    <td>{{expertsstatement.scan}}</td>
-                
+                                                    <td>{{expertsstatement.date}}</td>               
                                                 </tr>
                                             {% endfor %}   
                 
@@ -165,7 +162,7 @@
             bSort: true, 
 
             "columnDefs": [{
-                "targets": [3,4],
+                "targets": [3],
                 "orderable": false
             }]
         });

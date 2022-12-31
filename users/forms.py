@@ -1,10 +1,10 @@
-from socket import fromshare
 from urllib import request
 from django.forms import ModelForm
-from .models import AccessRequest, CourtFile, File
+from .models import CourtFile, File
 from django.contrib.auth.forms import UserCreationForm
 from django import forms 
 from django .contrib.auth.models import User
+from django import forms
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -34,21 +34,16 @@ class FileForm(ModelForm):
         model = File
         fields = ['signature', 'type', 'scan']
 
-class AccessForm(ModelForm):
-    user = forms.TextInput()
-    status = forms.TextInput()
-    signature = forms.TextInput()
-    decscription = forms.Textarea()
 
-    class Meta:
-        model = AccessRequest
-        fields = ['user', 'status', 'signature', 'description']
-        labels = {
-            'user': 'Twoje id:',
-            'status': "Status:",
-            'signature': 'Sygnatura akt:',
-            'description': 'Opisz po co ci akta',
-        }
+#class AccessForm(ModelForm):
+#    class Meta:
+#        model = AccessRequest
+#        fields = ['user', 'signature', 'description']
+
+class UploadForm(forms.Form):
+    file = forms.FileField(widget=forms.FileInput(attrs={
+        'id': 'file_id'
+    }))
 
 
 

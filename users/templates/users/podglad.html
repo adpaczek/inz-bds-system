@@ -15,12 +15,12 @@
     <div id="wrapper">
         <nav class="navbar navbar-dark fixed-bottom align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 930px;">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="far fa-chart-bar" style="font-size: 35px;"></i></div>
+                    <div class="sidebar-brand-icon"><i class="far fa-chart-bar" style="font-size: 35px;"></i></div>
                     <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 0px;padding-right: 50px;"><span style="font-size: 26px;">bds</span></div>
                 </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0">
                     <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><i class="far fa-user-circle text-center" style="font-size: 100px;margin-left: 11px;"></i></div>
                 </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" style="height: 169px;">
-                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 52px;padding-right: 50px;"><span style="font-size: 18px;font-weight: bold;padding-left: 0px;margin-left: -25px;">{{ user.username }}</span></div>
+                    <div class="sidebar-brand-text mx-3" style="height: 30px;width: 148.156px;margin-right: 40px;padding-right: 50px;"><span style="font-size: 18px;font-weight: bold;margin-left: 10px;">{{ user.username }}</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar" style="margin-top: -51px;margin-left: -25px;">
@@ -39,15 +39,12 @@
                 <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="margin-left: 224px;margin-top: 70px;height: 41px;">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="width: 650px;">
-                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" onclick="history.back()"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_u' %}">Panel użytkownika&nbsp;</a></button>&nbsp;|&nbsp;<button onClick="window.location.reload();" style="color:grey; background-color:transparent; border:none;">Podgląd&nbsp;</button></span></div>
+                            <div><span><button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_u' %}"><i class="fas fa-arrow-left"></i> Powrót&nbsp;</a></button>&nbsp;|&nbsp;<button style="color:grey; background-color:transparent; border:none;"><a class="nav-link" href="{% url 'start_u' %}">Panel użytkownika&nbsp;</a></button>&nbsp;|&nbsp;<button onClick="window.location.reload();" style="color:grey; background-color:transparent; border:none;">Teczka&nbsp;</button></span></div>
                         </form>
                     </div>
                 </nav>
                 <nav class="navbar navbar-light navbar-expand fixed-top bg-white mb-4 topbar static-top" style="margin-left: 224px;border-bottom: 1px solid rgba(133,135,150, 0.43)">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div><span>Sąd Okręgowy w ...</span></div>
-                        </form>
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
@@ -89,12 +86,65 @@
                     <div></div>
                 </div>
                 <div class="container" style="margin-left: 290px;">
-                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card shadow" style="border-style: none;width: 1000px;height: 600px;">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Przykładowa teczka</p>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <p style="text-align: center;font-size: 83px;"><strong>AKTA&nbsp;</strong></p>
+                                        <p style="text-align: center;font-size: 37px;margin-top: -47px;"><strong>&nbsp;sprawy o wykroczenie</strong></p>
+                                        <p style="text-align: center;font-size: 37px;"><strong>________________________________________________</strong></p>
+                                        <p style="text-align: center;font-size: 37px;margin-top: -30px;"><strong>________________________________________________</strong></p>
+                                        <p style="text-align: center;font-size: 37px;margin-top: -30px;"><strong>________________________________________________</strong></p>
+                                    </div>
+                                    <div>
+                                        <p style="width: 120px;margin-left: 39px;">Sąd Rejonowy</p>
+                                        <p style="width: 120px;margin-left: 820px;margin-top: -35px;">Sąd Okręgowy</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card shadow" style="border-style: none;width: 500px;margin-left: 370px;height: 600px;">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;text-align: center;">Informacje</p>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span>Akta sprawy o wykroczenie</span></li>
+                                        <li class="list-group-item"><span>Sygn. akt ___/__</span></li>
+                                        <li class="list-group-item"><span>Artykuł</span></li>
+                                        <li class="list-group-item"><span>1</span></li>
+                                        <li class="list-group-item"><span>2</span></li>
+                                        <li class="list-group-item"><span>3</span></li>
+                                        <li class="list-group-item"><span>4</span></li>
+                                        <li class="list-group-item"><span>5</span></li>
+                                        <li class="list-group-item"><span>6</span></li>
+                                        <li class="list-group-item"><span>7</span></li>
+                                        <li class="list-group-item"><span>8</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="border: 1px none rgb(173,173,173);">
+                            <div></div>
+                            <div class="card shadow" style="border-style: none;width: 1520px;margin-top: 20px;">
+                                <div class="card-header py-3" style="border-style: none;border-bottom-style: solid;border-bottom-color: rgba(159,159,159,0.176);background: rgba(0,0,0,0);">
+                                    <p class="text-primary m-0 fw-bold" style="font-size: 26px;">Sygn. akt ___________________________________ / _____________</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="margin-top: 60px;">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
+                    <div class="text-center my-auto copyright"style="margin-left: 10%;"><span>Prawa autorskie © Baza Dokumentów Sądowych 2023</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

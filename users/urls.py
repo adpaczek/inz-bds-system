@@ -22,7 +22,6 @@ urlpatterns = [
     path('a_pomoc/', views.apomocPage, name="a_pomoc"),
     path('a_info/', views.ainfoPage, name="a_info"),
     path('prosby/', views.prosbyPage, name="prosby"),
-    path('ocr/', views.prosbyPage, name="ocr"),
     path('podglad/<list_id>', views.podgladPage, name="podglad"),
     path('dodawanie/', views.dodawaniePage, name="dodawanie"),
     path('teczka/<teczka_id>', views.teczkaPage, name="teczka"),

@@ -112,11 +112,6 @@
                                                 <div class="card-body">
                                                     <div>
                                                         <ul class="list-group">
-                                                            <li class="list-group-item"><div>
-                                                                <div class="dropdown"><span>Wybierz z listy, czego dotyczy sprawa: </span><button class=" dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"></button>
-                                                                    <div class="dropdown-menu"><a class="dropdown-item" href="#">Sprawa karna</a><a class="dropdown-item" href="#">Sprawa o wykroczenie</a><a class="dropdown-item" href="#">Sprawa cywilna</a></div>
-                                                                </div>
-                                                            </div></li>
                                                             {% csrf_token %}
                                                             <li class="list-group-item"><span>Wybierz sąd, z którego pochodzą akta: {{form.court}}</span></li>
                                                             <li class="list-group-item"><span>Wpisz sygnaturę akt: {{form.signature}}</span></li>

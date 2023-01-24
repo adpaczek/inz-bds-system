@@ -27,6 +27,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar" style="margin-top: -51px;margin-left: -25px;">
+                    <li class="nav-item"><a class="nav-link active" href=""><span style="font-size: 18.6px;">Menu</span><i class="fas fa-chevron-down" style="margin-left: 8px;"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_info' %}"><i class="fas fa-info-circle"></i><span>Informacje o sądzie</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_baza_b' %}"><i class="fas fa-table"></i><span>Baza biegłych</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'a_ob' %}"><i class="fas fa-table"></i><span>Baza opinii biegłych</span></a></li>
@@ -113,7 +114,6 @@
                                                     <th>Biegły</th>
                                                     <th>Tytuł</th>
                                                     <th>Data</th>
-                                                    <th>Skan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -124,7 +124,6 @@
                                                     <td>{{expertsstatement.expert}}</td>
                                                     <td>{{expertsstatement.statement_title}}</td>
                                                     <td>{{expertsstatement.date}}</td>
-                                                    <td>{{expertsstatement.scan}}</td>
                 
                                                 </tr>
                                             {% endfor %}   
@@ -163,7 +162,7 @@
             bSort: true, 
 
             "columnDefs": [{
-                "targets": [3,4],
+                "targets": [3],
                 "orderable": false
             }]
         });

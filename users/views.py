@@ -18,6 +18,7 @@ from django.views import generic
 from django.contrib.auth.models import User
 from django.views.generic import FormView
 
+
 #from io import BytesIO
 #from reportlab.pdfgen import canvas
 
@@ -27,8 +28,10 @@ from PIL import Image
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
-#pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 #path_wkhtmltopdf = r'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
+
+tessdata_dir_config = '--tessdata-dir "C:\Program Files\\Tesseract-OCR\\tessdata"'
 
 def home(request):
     context= {}
@@ -251,7 +254,7 @@ def process_image(request):
     if request.method == 'POST':
         response_data = {}
         upload = request.FILES['file']
-        content = pytesseract.image_to_string(Image.open(upload))
+        content = pytesseract.image_to_string(Image.open(upload), lang='pol+eng', config=tessdata_dir_config)
         response_data['content'] = content
 
         return JsonResponse(response_data)

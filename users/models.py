@@ -19,7 +19,7 @@ class CourtFile(models.Model):
     court = models.ForeignKey(Court, on_delete=models.CASCADE, null=True)
     signature = models.CharField(max_length=200, null=True)
     article = models.CharField(max_length=200, null=True)
-    contents_list = models.FileField(upload_to = "E:\\Dev\\inz\\inzynierka\\users\\cfiles\\contents", null=True)
+    contents_list = models.FileField(upload_to = "C:\\Users\\Gabrysia\\Desktop\\Dev\\denv\\inz\\users\\cfiles\\contents", null=True)
 
     def __str__(self):
         return f'{self.court} - {self.signature}'
@@ -27,7 +27,7 @@ class CourtFile(models.Model):
 class File(models.Model):
     signature = models.ForeignKey(CourtFile, on_delete=models.CASCADE, null=True)
     type = models.CharField(max_length=200, null=True)
-    scan = models.FileField(upload_to = "E:\\Dev\\inz\\inzynierka\\users\\cfiles\\files", null=True)
+    scan = models.FileField(upload_to = "C:\\Users\\Gabrysia\\Desktop\\Dev\\denv\\inz\\users\\cfiles\\files", null=True)
 
     def __str__(self):
         return f'{self.signature} ({self.type})'
@@ -46,7 +46,7 @@ class Expert(models.Model):
 
 class ExpertsStatement(models.Model):
     signature = models.ForeignKey(CourtFile, on_delete=models.CASCADE, null=True)
-    scan = models.FileField(upload_to = "E:\\Dev\\inz\\inzynierka\\users\\cfiles\\statements", null=True, blank=True)
+    scan = models.FileField(upload_to = "C:\\Users\\Gabrysia\\Desktop\\Dev\\denv\\inz\\users\\cfiles\\statements", null=True, blank=True)
     statement_title = models.CharField(max_length=200, null=True)
     expert = models.ForeignKey(Expert, on_delete=models.CASCADE, null=True)
     date = models.DateField(null=True)
